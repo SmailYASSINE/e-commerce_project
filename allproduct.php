@@ -23,10 +23,8 @@ while($prod=mysqli_fetch_row($result))
 {
 	echo "<tr><td><a href=delmateriel.php?num=$prod[0]><img src=images/drop.png width=\"20\" height=\"20\"></a></td>";
 	echo "<td><a href=editmateriel.php?num=$prod[0]><img src=images/update.png width=\"20\" height=\"20\"></a></td>";
-	echo "<td>$prod[0]</td><td>$prod[1]</td><td>$prod[2]</td>";
-	if($prod[3]=='E') echo "<td> Electronique </td>";
-	 else  echo "<td> Mecanique </td>";
-	echo"<td>$prod[4]</td><td>$prod[5]</td>";
+	echo "<td>$prod[0]</td><td>$prod[1]</td><td>$prod[3]</td>";
+	echo"<td>$prod[7]</td><td>$prod[2]</td>";
 	$querycat="select designation from categories where numcat=$prod[6]";
 	$resultcat=mysqli_query($connect,$querycat);
 	$cat=mysqli_fetch_row($resultcat);
