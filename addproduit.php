@@ -1,6 +1,6 @@
 <?php 
 require 'connexion.php';
-
+----------
 $nom_produit = $_POST['nom_produit'];
 $prix = $_POST['prix'];
 $Description = $_POST['Description'];
