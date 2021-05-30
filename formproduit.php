@@ -1,5 +1,9 @@
+<a href="deconexion.php">déconnexion</a>
 <table border="1" align="center">
-	<?php require 'connexion.php';?>
+	<?php require 'connexion.php';
+		  require 'verfsession.php';
+	?>
+
  <form action="addproduit.php" method="post" enctype="multipart/form-data" name="frm" onsubmit="return verfier()">
  <tr><th colspan="2">Nouveau Produit</th></tr>
 <tr><td>nom de produit: </td><td><input type="text" name="nom_produit"></td></tr>
