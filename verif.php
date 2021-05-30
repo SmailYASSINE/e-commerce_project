@@ -6,7 +6,7 @@ $query="select count(*) from admin where email='$login' && admin_password='$pass
 $result=mysqli_query($connect,$query);
 $data=mysqli_fetch_row($result);
 
-
+-----------
 if($data[0]==1)
 {
 	session_start();
