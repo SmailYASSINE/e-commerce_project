@@ -1,8 +1,8 @@
 <?php
 $login=$_POST['login'];
-$pass=md5($_POST['pass']);
+$pass=$_POST['pass'];
 require 'connexion.php';
-$query="select count(*) from admin where email='$login' and admin_password='$pass'";
+$query="select count(*) from admin where email='$login' && admin_password='$pass'";
 $result=mysqli_query($connect,$query);
 $data=mysqli_fetch_row($result);
 
@@ -15,8 +15,8 @@ if($data[0]==1)
 	//$query="select droit from users where login='$login'";
 	$result1=mysqli_query($connect,$query);
 	$data1=mysqli_fetch_row($result);
-	$_SESSION['droit']=$data1[0];
-	//header('location:allmateriels.php');
+	//$_SESSION['droit']=$data1[0];
+	header('location:formproduit.php');
 }
-else header('location:auth.php?verif=false');
+else header('location:authen.php?verif=false');
 ?>
