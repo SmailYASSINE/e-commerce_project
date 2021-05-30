@@ -24,5 +24,4 @@ if($_FILES["image1"]["error"]==0 && $_FILES["image2"]["error"]==0 && $_FILES["im
 }
 echo $query;
 mysqli_query($connect,$query);
-***
 ?>

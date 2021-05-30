@@ -19,4 +19,5 @@ if($data[0]==1)
 	header('location:formproduit.php');
 }
 else header('location:authen.php?verif=false');
+----è----
 ?>
