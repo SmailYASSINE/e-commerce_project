@@ -1,4 +1,4 @@
-TYPE html>
+
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -28,7 +28,11 @@ TYPE html>
   </head>
 
   <body>
-  
+  <?php require 'connexion.php';
+     //   require 'verfsession.php';
+  ?>
+
+ 
     <div class="container tm-mt-big tm-mb-big">
       <div class="row">
         <div class="col-xl-9 col-lg-10 col-md-12 col-sm-12 mx-auto">
@@ -40,7 +44,7 @@ TYPE html>
             </div>
             <div class="row tm-edit-product-row">
               <div class="col-xl-6 col-lg-6 col-md-12">
-                <form action="" class="tm-edit-product-form">
+                <form action="addproduit.php" method="post" enctype="multipart/form-data" name="frm" >
                   <div class="form-group mb-3">
                     <label
                       for="name"
@@ -48,7 +52,7 @@ TYPE html>
                     </label>
                     <input
                       id="name"
-                      name="name"
+                      name="nom_produit"
                       type="text"
                       class="form-control validate"
                       required
@@ -60,6 +64,7 @@ TYPE html>
                       >Description</label
                     >
                     <textarea
+                      name='Description'
                       class="form-control validate"
                       rows="3"
                       required
@@ -71,38 +76,34 @@ TYPE html>
                       >Category</label
                     >
                     <select
+                      name='categorie'
                       class="custom-select tm-select-accounts"
                       id="category"
                     >
-                      <option selected>Select category</option>
-                      <option value="1">New Arrival</option>
-                      <option value="2">Most Popular</option>
-                      <option value="3">Trending</option>
+                      <option value="0"> Choose here </option>
+                      <?php
+                      $query = "select * from categorie";
+                     // print_r($query);
+                      $cats= mysqli_query($connect ,$query);
+                      //$cats=mysqli_fetch_row($catss);
+
+                      print_r($cats);
+                      while($cat=mysqli_fetch_row($cats))
+                      { ?>
+                      <option value="<?php echo $cat[0];?>"> <?php echo $cat[1];?></option>
+                      <?php } ?>
                     </select>
                   </div>
                   <div class="row">
-                      <div class="form-group mb-3 col-xs-12 col-sm-6">
-                          <label
-                            for="expire_date"
-                            >Expire Date
-                          </label>
-                          <input
-                            id="expire_date"
-                            name="expire_date"
-                            type="text"
-                            class="form-control validate"
-                            data-large-mode="true"
-                          />
-                        </div>
                         <div class="form-group mb-3 col-xs-12 col-sm-6">
                           <label
                             for="stock"
-                            >Units In Stock
+                            >prix
                           </label>
                           <input
                             id="stock"
-                            name="stock"
-                            type="text"
+                            name="prix"
+                            type="number"
                             class="form-control validate"
                             required
                           />
@@ -119,7 +120,7 @@ TYPE html>
                     </label>
                     <input
                       id="name"
-                      name="name"
+                      name="image1"
                       type="file"
                       class="form-control validate"
                       required
@@ -133,7 +134,7 @@ TYPE html>
                     </label>
                     <input
                       id="name"
-                      name="name"
+                      name="image2"
                       type="file"
                       class="form-control validate"
                       required
@@ -146,7 +147,7 @@ TYPE html>
                     </label>
                     <input
                       id="name"
-                      name="name"
+                      name="image3"
                       type="file"
                       class="form-control validate"
                       required
