@@ -201,13 +201,23 @@
       <!--Section: Minimal statistics cards-->
  
       <!--Section: all product-->
+<!-- 
       <section>
-            <?php
-            $myfile = fopen("test.html", "r+") or die("Unable to open file!");
-            echo fread($myfile,filesize("test.html"));
+        
+            
+            
+            $myfile = fopen("allproducts.php", "r+") or die("Unable to open file!");
+            echo fread($myfile,filesize("allproducts.php"));
             fclose($myfile);
-            ?>
+            
+            
       </section>
+--> 
+<section>
+  <?php
+  include 'allproducts.php';
+  ?>
+</section>
       <!--Section: Statistics with subtitles-->
 
    <!--   <section>
