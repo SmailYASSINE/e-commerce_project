@@ -15,8 +15,8 @@ if($data[0]==1)
 	$result1=mysqli_query($connect,$query);
 	$data1=mysqli_fetch_row($result);
 	//$_SESSION['droit']=$data1[0];
-	header('location:allproduct.php');
+	header('location:admin.php');
 }
-else header('location:authen.php?verif=false');
+else header('location:login.php?verif=false');
 ?>
 
