@@ -212,14 +212,12 @@
             
             
       </section>
-<<<<<<< HEAD
 --> 
 <section>
   <?php
   include 'allproducts.php';
   ?>
 </section>
-=======
       <!--Section: add product-->
       <section>
             <?php
@@ -232,7 +230,6 @@
             include 'formcat1.php';
             ?>
       </section>
->>>>>>> 10c09d2dc2ab398279f191870326339a932d096f
       <!--Section: Statistics with subtitles-->
 
    <!--   <section>
