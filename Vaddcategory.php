@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
   <!-- MDB -->
   <link rel="stylesheet" href="css/mdb.min.css" />
+  <link rel="stylesheet" href="logincss.css">
   <!-- Custom styles -->
   <link rel="stylesheet" href="css/admin.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw=="
@@ -42,23 +43,14 @@
             
           </a>
           -->
-          <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              produit
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="allproduct.php">All Products</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-          </div>
+         
 
-          <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
-              class="fas fa-lock fa-fw me-3"></i><span>Password</span></a>
-          <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
-              class="fas fa-chart-line fa-fw me-3"></i><span>Analytics</span></a>
-          <a href="#" class="list-group-item list-group-item-action py-2 ripple">
-            <i class="fas fa-chart-pie fa-fw me-3"></i><span>SEO</span>
+          <a href="Vallproduct.php" class="list-group-item list-group-item-action py-2 ripple"><i
+              class="fas fa-lock fa-fw me-3"></i><span>all product</span></a>
+          <a href="Vaddproduct.php" class="list-group-item list-group-item-action py-2 ripple"><i
+              class="fas fa-chart-line fa-fw me-3"></i><span>add product</span></a>
+          <a href="Vaddcategory.php" class="list-group-item list-group-item-action py-2 ripple">
+            <i class="fas fa-chart-pie fa-fw me-3"></i><span>add category</span>
           </a>
           <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
               class="fas fa-chart-bar fa-fw me-3"></i><span>Orders</span></a>
@@ -215,21 +207,11 @@
 --> 
       <section>
         <?php
-        include 'allproducts.php';
+        include 'formcat1.php';
         ?>
       </section>
       <!--Section: add product-->
-      <section>
-            <?php
-            include 'formproduct.php';
-            ?>
-      </section>
-      <!--Section: all product-->
-      <section>
-            <?php
-            include 'formcat1.php';
-            ?>
-      </section>
+      
       <!--Section: Statistics with subtitles-->
 
    <!--   <section>

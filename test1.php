@@ -219,17 +219,7 @@
         ?>
       </section>
       <!--Section: add product-->
-      <section>
-            <?php
-            include 'formproduct.php';
-            ?>
-      </section>
-      <!--Section: all product-->
-      <section>
-            <?php
-            include 'formcat1.php';
-            ?>
-      </section>
+      
       <!--Section: Statistics with subtitles-->
 
    <!--   <section>
