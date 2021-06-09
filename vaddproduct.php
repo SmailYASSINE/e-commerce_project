@@ -68,16 +68,16 @@
             </ul>
           </li>
 
-          <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
-              class="fas fa-lock fa-fw me-3"></i><span>Password</span></a>
-          <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
-              class="fas fa-chart-line fa-fw me-3"></i><span>Analytics</span></a>
-          <a href="#" class="list-group-item list-group-item-action py-2 ripple">
-            <i class="fas fa-chart-pie fa-fw me-3"></i><span>SEO</span>
+          <a href="Vallproducts.php" class="list-group-item list-group-item-action py-2 ripple"><i
+              class="fas fa-lock fa-fw me-3"></i><span>All Products</span></a>
+          <a href="Vaddproduct.php" class="list-group-item list-group-item-action py-2 ripple"><i
+              class="fas fa-chart-line fa-fw me-3"></i><span>Add Product</span></a>
+          <a href="Vaddcategory.php" class="list-group-item list-group-item-action py-2 ripple">
+            <i class="fas fa-chart-pie fa-fw me-3"></i><span>Add Category</span>
           </a>
           <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
               class="fas fa-chart-bar fa-fw me-3"></i><span>Orders</span></a>
-          <a href="#" class="list-group-item list-group-item-action py-2 ripple" onclick="myFunction()" id="demo"><i
+          <a href="#" class="list-group-item list-group-item-action py-2 ripple" ><i
               class="fas fa-globe fa-fw me-3"></i><span>International</span></a>
           <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
               class="fas fa-building fa-fw me-3"></i><span>Partners</span></a>
@@ -93,12 +93,6 @@
     <!-- Sidebar -->
 
   
-<script>
-function myFunction() {
-  document.getElementById("demo").value = <?php include 'formproduct.php';?>
-}
-
-</script>
 
 
 
@@ -244,21 +238,9 @@ function myFunction() {
 
 <section>
   <?php
-  include 'allproducts.php';
+  include 'formproduct.php';
   ?>
 </section>
-      <!--Section: add product-->
-      <section>
-            <?php
-            include 'formproduct.php';
-            ?>
-      </section>
-      <!--Section: all product-->
-      <section>
-            <?php
-            include 'formcat1.php';
-            ?>
-      </section>
       <!--Section: Statistics with subtitles-->
 
    <!--   <section>
