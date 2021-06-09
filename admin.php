@@ -241,12 +241,11 @@ function myFunction() {
             
       </section>
 --> 
-
-<section>
-  <?php
-  include 'allproducts.php';
-  ?>
-</section>
+      <section>
+        <?php
+        include 'allproducts.php';
+        ?>
+      </section>
       <!--Section: add product-->
       <section>
             <?php
