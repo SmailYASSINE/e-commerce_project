@@ -23,15 +23,16 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <!--
-  Product Admin CSS Template
-  https://templatemo.com/tm-524-product-admin
-  -->
+	Product Admin CSS Template
+	https://templatemo.com/tm-524-product-admin
+	-->
   </head>
 
   <body>
-  <?php require 'connexion.php';
+  <?php//* require 'connexion.php';
      //   require 'verfsession.php';
   ?>
+
  
     <div class="container tm-mt-big tm-mb-big">
       <div class="row">
@@ -39,20 +40,20 @@
           <div class="tm-bg-primary-dark tm-block tm-block-h-auto">
             <div class="row">
               <div class="col-12">
-                <h2 class="tm-block-title d-inline-block">Add Product</h2>
+                <h2 class="tm-block-title d-inline-block">Add partner</h2>
               </div>
             </div>
             <div class="row tm-edit-product-row">
               <div class="col-xl-6 col-lg-6 col-md-12">
-                <form action="addproduit.php" method="post" enctype="multipart/form-data" name="frm" >
+                <form action="adduser.php" method="post" enctype="multipart/form-data" name="frm" >
                   <div class="form-group mb-3">
                     <label
                       for="name"
-                      >Product Name
+                      >first name
                     </label>
                     <input
                       id="name"
-                      name="nom_produit"
+                      name="first_name"
                       type="text"
                       class="form-control validate"
                       required
@@ -60,103 +61,50 @@
                   </div>
                   <div class="form-group mb-3">
                     <label
-                      for="description"
-                      >Description</label
-                    >
-                    <textarea
-                      name='Description'
+                      for="name"
+                      >last name
+                    </label>
+                    <input
+                      id="name"
+                      name="last_name"
+                      type="text"
                       class="form-control validate"
-                      rows="3"
                       required
-                    ></textarea>
+                    />
                   </div>
                   <div class="form-group mb-3">
                     <label
-                      for="category"
-                      >Category</label
-                    >
-                    <select
-                      name='categorie'
-                      class="custom-select tm-select-accounts"
-                      id="category"
-                    >
-                      <option value="0"> Choose here </option>
-                      <?php
-                      $query = "select * from categorie";
-                     // print_r($query);
-                      $cats= mysqli_query($connect ,$query);
-                      //$cats=mysqli_fetch_row($catss);
-
-                      print_r($cats);
-                      while($cat=mysqli_fetch_row($cats))
-                      { ?>
-                      <option value="<?php echo $cat[0];?>"> <?php echo $cat[1];?></option>
-                      <?php } ?>
-                    </select>
+                      for="name"
+                      >email 
+                    </label>
+                    <input
+                      id="name"
+                      name="email"
+                      type="email"
+                      class="form-control validate"
+                      required
+                    />
                   </div>
-                  <div class="row">
-                        <div class="form-group mb-3 col-xs-12 col-sm-6">
-                          <label
-                            for="stock"
-                            >prix
-                          </label>
-                          <input
-                            id="stock"
-                            name="prix"
-                            type="number"
-                            class="form-control validate"
-                            required
-                          />
-                        </div>
+                  <div class="form-group mb-3">
+                    <label
+                      for="name"
+                      >password 
+                    </label>
+                    <input
+                      id="name"
+                      name="password"
+                      type="text"
+                      class="form-control validate"
+                      required
+                    />
                   </div>
                   
               </div>
               
-              <div class="col-xl-6 col-lg-6 col-md-12 mx-auto mb-4 text-white">
-                <div class="form-image mb-3">
-                    <label
-                      for="name"
-                      >Photo 1:
-                    </label>
-                    <input
-                      id="name"
-                      name="image1"
-                      type="file"
-                      class="form-control validate"
-                      required
-                    />
-            </div>
-            
-                <div class="form-image mb-3">
-                    <label
-                      for="name"
-                      >Photo 2 :
-                    </label>
-                    <input
-                      id="name"
-                      name="image2"
-                      type="file"
-                      class="form-control validate"
-                      required
-                    />
-              </div>
-                    <div class="form-image mb-3">
-                    <label
-                      for="name" 
-                      >Photo 3 :
-                    </label>
-                    <input
-                      id="name"
-                      name="image3"
-                      type="file"
-                      class="form-control validate"
-                      required
-                    />
-              </div>
-              </div>
+              
 
               <div class="col-12">
-                <button type="submit" class="btn btn-primary btn-block text-uppercase">Add Product Now</button>
+                <button type="submit" class="btn btn-primary btn-block text-uppercase">Add your partner now</button>
               </div>
             </form>
             </div>

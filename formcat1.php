@@ -37,7 +37,7 @@
           <div class="tm-bg-primary-dark tm-block tm-block-h-auto">
             <div class="row">
               <div class="col-12">
-                <h2 class="tm-block-title d-inline-block">Add Product</h2>
+                <h2 class="tm-block-title d-inline-block">Add category</h2>
               </div>
             </div>
             <div class="row tm-edit-product-row">
@@ -70,7 +70,7 @@
                   </div>
                   
                   <div class="row">
-                        <div class="form-group mb-3 col-xs-12 col-sm-6">
+                        <div class="form-group mb-3">
                          
                           <label
                             for="name"
@@ -90,7 +90,7 @@
               
 
               <div class="col-12">
-                <button type="submit" class="btn btn-primary btn-block text-uppercase">Add Product Now</button>
+                <button type="submit" class="btn btn-primary btn-block text-uppercase">Add category Now</button>
               </div>
             </form>
             </div>
