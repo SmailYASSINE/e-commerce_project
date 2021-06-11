@@ -67,7 +67,6 @@ else
                 </thead>
 
 
-
                 <?php
                 while($prod=mysqli_fetch_row($result))
                 {
@@ -81,8 +80,8 @@ else
 
                         echo "<td>";
                         echo '<a href="#" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>';
-                        echo '<a href="#" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>';
-                        echo '<a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>';
+                        echo "<a href=editproduct.php?num=$prod[0] class='edit' title='Edit' data-toggle='tooltip'><i class='material-icons'>&#xE254;</i></a>";
+                        echo "<a href=delete_product.php?num=$prod[0] class='delete' title='Delete' data-toggle='tooltip'><i class='material-icons'>&#xE872;</i></a>";
                         echo "</td>";
                     echo "</tr>";
                 }
