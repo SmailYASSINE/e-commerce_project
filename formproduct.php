@@ -48,7 +48,7 @@
                   <div class="form-group mb-3">
                     <label
                       for="name"
-                      >Product Name
+                      >product Name
                     </label>
                     <input
                       id="name"
