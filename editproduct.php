@@ -1,3 +1,14 @@
+<?php 
+require "connexion.php";
+require 'verfsession.php';
+
+$numcat=$_GET['num'];
+$_SESSION["var"]=$numcat;
+$query = "select * from produit where id_produit=$numcat";
+#$query = "select id_produit, nom_produit, prix, description, image1,image2,image3,nom_categorie from produit,categorie where produit.id_categorie=categorie.id_categorie and id_produit=$numcat";
+$mat2=mysqli_query($connect,$query);
+$mat=mysqli_fetch_row($mat2);
+?>
 
 <html lang="en">
   <head>
@@ -21,15 +32,29 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <!--
-  Product Admin CSS Template
-  https://templatemo.com/tm-524-product-admin
-  -->
+	Product Admin CSS Template
+	https://templatemo.com/tm-524-product-admin
+	-->
+  <style>
+  img{
+    width: 20px;
+    height: 20px;
+  }
+  .ppp{
+    width: 400px;
+    height: 400px;
+    margin:40px;
+    margin-left:35px;
+    
+  }
+  
+  </style>
   </head>
 
   <body>
-  <?php require 'connexion.php';
+  <?php //require 'connexion.php';
      //   require 'verfsession.php';
   ?>
  
@@ -44,15 +69,16 @@
             </div>
             <div class="row tm-edit-product-row">
               <div class="col-xl-6 col-lg-6 col-md-12">
-                <form action="addproduit.php" method="post" enctype="multipart/form-data" name="frm" >
+                <form action="update_produit.php" method="post" enctype="multipart/form-data" name="frm" >
                   <div class="form-group mb-3">
                     <label
                       for="name"
-                      >product Name
+                      >Product Name
                     </label>
                     <input
                       id="name"
                       name="nom_produit"
+                      value="<?php echo $mat[1];?>"
                       type="text"
                       class="form-control validate"
                       required
@@ -68,7 +94,7 @@
                       class="form-control validate"
                       rows="3"
                       required
-                    ></textarea>
+                    ><?php echo $mat[3];?></textarea>
                   </div>
                   <div class="form-group mb-3">
                     <label
@@ -86,12 +112,24 @@
                      // print_r($query);
                       $cats= mysqli_query($connect ,$query);
                       //$cats=mysqli_fetch_row($catss);
-
-                      print_r($cats);
+                      //print_r($cats);
+                      $saved="select id_categorie from produit where id_produit=$numcat";
+                      $res1= mysqli_query($connect ,$saved);
+                      $res2= mysqli_fetch_row($res1)[0];
                       while($cat=mysqli_fetch_row($cats))
                       { ?>
-                      <option value="<?php echo $cat[0];?>"> <?php echo $cat[1];?></option>
-                      <?php } ?>
+                        <?php if ($res2!=$cat[0]) {?>
+                            <option value= "<?php echo $cat[0];?>" > <?php echo $cat[1];?></option>
+                        <?php
+                        }
+                        else 
+                        
+                        {
+                        ?>
+                            <option value= "<?php echo $cat[0];?>" <?php  echo "selected";?>> <?php echo $cat[1];?></option>
+                        <?php
+                        }
+                       } ?>
                     </select>
                   </div>
                   <div class="row">
@@ -103,6 +141,7 @@
                           <input
                             id="stock"
                             name="prix"
+                            value="<?php echo $mat[2];?>"
                             type="number"
                             class="form-control validate"
                             required
@@ -113,28 +152,58 @@
               </div>
               
               <div class="col-xl-6 col-lg-6 col-md-12 mx-auto mb-4 text-white">
-                <div class="form-image mb-3">
+                <div class="form-image mb-3 ">
                     <label
                       for="name"
-                      >Photo 1:
+                      >Photo 1 :
+                      
                     </label>
+
+                      <button type="button" class="ml-5 btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">Click to view</button>
+                    <div id="myModal" class="modal fade" tabindex="-1" role="dialog" >
+  <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-body">
+            <img src="<?php echo 'photos/'.$mat[4].'.jpeg' ; ?>" class="img-responsive ppp">
+        </div>
+    </div>
+  </div>
+</div>
+
                     <input
                       id="name"
                       name="image1"
+                      value="<?php echo $mat[4];?>"
                       type="file"
                       class="form-control validate"
                       required
                     />
+                    
+
             </div>
             
                 <div class="form-image mb-3">
                     <label
                       for="name"
-                      >Photo 2 :
+                      >Photo 2 : 
                     </label>
+          
+                    <button type="button" class="ml-5 btn btn-primary btn-sm pl-100" data-toggle="modal" data-target="#myModal">Click to view</button>
+                      <br>
+<div id="myModal" class="modal fade" tabindex="-1" role="dialog" >
+  <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-body">
+            <img src="<?php echo 'photos/'.$mat[5].'.jpeg' ; ?>" class="img-responsive ppp">
+        </div>
+    </div>
+  </div>
+</div>
+                    <!--<img  src=" echo 'photos/'.$mat[5].'.jpeg' ; " >-->
                     <input
                       id="name"
                       name="image2"
+                      value="<?php echo $mat[5];?>"
                       type="file"
                       class="form-control validate"
                       required
@@ -145,9 +214,21 @@
                       for="name" 
                       >Photo 3 :
                     </label>
+                    <button type="button" class="ml-5 btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">Click to view</button>
+                      <br>
+<div id="myModal" class="modal fade" tabindex="-1" role="dialog" >
+  <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-body">
+            <img src="<?php echo 'photos/'.$mat[6].'.jpeg' ; ?>" class="img-responsive ppp">
+        </div>
+    </div>
+  </div>
+</div>
                     <input
                       id="name"
                       name="image3"
+                      value="<?php echo $mat[6];?>"
                       type="file"
                       class="form-control validate"
                       required
@@ -156,7 +237,7 @@
               </div>
 
               <div class="col-12">
-                <button type="submit" class="btn btn-primary btn-block text-uppercase">Update Product Now</button>
+                <button type="submit" class="btn btn-primary btn-block text-uppercase">Add Product Now</button>
               </div>
             </form>
             </div>
@@ -178,3 +259,6 @@
     </script>
   </body>
 </html>
+
+
+
