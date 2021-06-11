@@ -4,7 +4,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
+<!-- -->
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -16,9 +16,10 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
   <!-- MDB -->
   <link rel="stylesheet" href="css/mdb.min.css" />
-  <link rel="stylesheet" href="logincss.css">
+   <link rel="stylesheet" href="logincss.css">
   <!-- Custom styles -->
   <link rel="stylesheet" href="css/admin.css" />
+  <link rel="stylesheet" href="logincss.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw=="
     crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -43,7 +44,7 @@
             
           </a>
           -->
-         
+          
 
           <a href="Vallproduct.php" class="list-group-item list-group-item-action py-2 ripple"><i
               class="fas fa-lock fa-fw me-3"></i><span>all product</span></a>
@@ -207,7 +208,9 @@
 --> 
       <section>
         <?php
-        include 'formcat1.php';
+
+        include 'formuser.php';
+
         ?>
       </section>
       <!--Section: add product-->
