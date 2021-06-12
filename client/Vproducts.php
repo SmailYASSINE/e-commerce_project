@@ -26,9 +26,9 @@
 		</div>
 		<div id="navbar-collapse-02" class="collapse navbar-collapse">
 			<ul class="nav navbar-nav navbar-right">
-				<li class="propClone"><a href="index.html">Home</a></li>
+				<li class="propClone"><a href="ctrl.php">Home</a></li>
 				<li class="propClone"><a href="Vproduct.php">Shop</a></li>
-				<li class="propClone"><a href="Vproductdetail.php">Product</a></li>
+				<li class="propClone"><?php echo '<a href=ctrl.php?action=allpro >Our Products</a>';?></li>
 				<li class="propClone"><a href="checkout.html">Checkout</a></li>
 				<li class="propClone"><a href="contact.html">Contact</a></li>
 			</ul>

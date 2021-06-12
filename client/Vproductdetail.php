@@ -26,9 +26,9 @@
 		</div>
 		<div id="navbar-collapse-02" class="collapse navbar-collapse">
 			<ul class="nav navbar-nav navbar-right">
-				<li class="propClone"><a href="index.html">Home</a></li>
+				<li class="propClone"><a href="ctrl.php">Home</a></li>
 				<li class="propClone"><a href="Vproducts.php">Shop</a></li>
-				<li class="propClone"><a href="product.html">Product</a></li>
+				<li class="propClone"><?php echo '<a href=ctrl.php?action=allpro >Our Products</a>';?></li>
 				<li class="propClone"><a href="checkout.html">Checkout</a></li>
 				<li class="propClone"><a href="contact.html">Contact</a></li>
 			</ul>
@@ -78,23 +78,20 @@
 				<br/>
 				<div class="product-details text-left">
 					<p>
-						Your description here. Serenity is a highly-professional & modern website theme crafted with you, the user, in mind. This light-weight theme is generous, built with custom types and enough shortcodes to customize each page according to your project. You will notice some examples of pages in demo, but this theme can do much more.
+							 <?php echo "$product[1]";?>
+						
 					</p>
 				</div>
 			</div>
 		</div>
 		<div class="col-md-4">
-			<a href="#" class="btn btn-buynow">$49.00 - Purchase</a>
+			<a href="#" class="btn btn-buynow">shop now</a>
 			<div class="properties-box">
 				<ul class="unstyle">
-					<li><b class="propertyname">Version:</b> 1.0</li>
-					<li><b class="propertyname">Image Size:</b> 2340x1200</li>
-					<li><b class="propertyname">Files Included:</b> mp3, audio, jpeg, png</li>
-					<li><b class="propertyname">Documentation:</b> Well Documented</li>
-					<li><b class="propertyname">License:</b> GNU</li>
-					<li><b class="propertyname">Requires:</b> Easy Digital Downloads</li>
-					<li><b class="propertyname">Environment:</b> Wordpress</li>
-					<li><b class="propertyname">Any Field Etc:</b> Any Detail</li>
+					<li><b class="propertyname">name: </b><?php echo "$product[1]";?></li>
+					<li><b class="propertyname">price: </b><?php echo "$product[2]";?>$</li>
+					
+					<li><b class="propertyname">category: </b> <?php echo "$product[3]";?></li>
 					<li><b class="propertyname">Number:</b> Up to 20 specifications in this box</li>
 					<li><b class="propertyname">Live Demo:</b><a target="_blank" href="http://www.wowthemes.net/">http://www.wowthemes.net/</a></li>
 				</ul>

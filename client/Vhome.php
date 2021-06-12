@@ -9,6 +9,10 @@
 <link href="css/style.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Roboto:200,300,400,500,600,700" rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -27,9 +31,9 @@
 		</div>
 		<div id="navbar-collapse-02" class="collapse navbar-collapse">
 			<ul class="nav navbar-nav navbar-right">
-				<li class="propClone"><a href="index.html">Home</a></li>
-				<li class="propClone"><a href="shop.html">Shop</a></li>
-				<li class="propClone"><a href="Vproductdetail.php">Product</a></li>
+				<li class="propClone"><a href="ctrl.php">Home</a></li>
+				<li class="propClone"><a href="shop.html">Categories</a></li>
+				<li class="propClone"><?php echo '<a href=ctrl.php?action=allpro >Our Products</a>';?></li>
 				<li class="propClone"><a href="checkout.html">Checkout</a></li>
 				<li class="propClone"><a href="contact.html">Contact</a></li>
 			</ul>
@@ -54,32 +58,56 @@
 </header>
 
 
+
+
+		
+
 <!-- STEPS =============================-->
 <div class="item content">
 	<div class="container toparea">
-		<div class="row text-center">
-			<div class="col-md-4">
-				<div class="col editContent">
-					<span class="numberstep"><i class="fa fa-shopping-cart"></i></span>
-					<h3 class="numbertext">Choose our Products</h3>
-					<p>
-						 Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Nullam quis risus eget urna mollis ornare vel eu leo. Cras justo odio, dapibus ac facilisis in, egestas eget quam.
-					</p>
-				</div>
-				<!-- /.col-md-4 -->
-			</div>
-			<!-- /.col-md-4 col -->
-			<div class="col-md-4 editContent">
-				<div class="col">
-					<span class="numberstep"><i class="fa fa-gift"></i></span>
-					<h3 class="numbertext">Pay with PayPal or Card</h3>
-					<p>
-						 Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Nullam quis risus eget urna mollis ornare vel eu leo. Cras justo odio, dapibus ac facilisis in, egestas eget quam.
-					</p>
-				</div>
-				<!-- /.col -->
-			</div>
-			<!-- /.col-md-4 col -->
+		
+<?php
+foreach($cats as $cat)
+{
+?>
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+	  <ol class="carousel-indicators">
+	    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+	    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+	    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+	  </ol>
+		  <div class="carousel-inner">
+		    <div class="carousel-item active">
+		      <img class="d-block style="width: 100px; height: 200px;" src="<?php echo '../admin/photos/'.$cat[2].'.jpeg'; ?>"alt="First slide">
+		      	  <div class="carousel-caption d-none d-md-block">
+    				<h5>..jil;fhrvomdvhjo:vh lnftm.</h5>
+    				<p>..nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn.</p>
+  				  </div>
+
+		       </div>
+
+	  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+	    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+	    <span class="sr-only">Previous</span>
+	  </a>
+	  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+	    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+	    <span class="sr-only">Next</span>
+	  </a>
+</div>
+<?php
+}
+?>
+
+
+
+
+
+
+
+
+
+			<!-- /.col-md-4 col 
 			<div class="col-md-4 editContent">
 				<div class="col">
 					<span class="numberstep"><i class="fa fa-download"></i></span>
@@ -88,8 +116,9 @@
 						 Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Nullam quis risus eget urna mollis ornare vel eu leo. Cras justo odio, dapibus ac facilisis in, egestas eget quam.
 					</p>
 				</div>
-			</div>
-		</div>
+				-->
+			
+		
 	</div>
 </div>
 	
@@ -109,98 +138,62 @@
 				</span>
 			</div>
 		</div>
+
 		<div class="row">
-			<div class="col-md-4">
-				<div class="productbox">
-					<div class="fadeshop">
-						<div class="captionshop text-center" style="display: none;">
-							<h3>Item Name</h3>
-							<p>
-								 This is a short excerpt to generally describe what the item is about.
-							</p>
-							<p>
-								<a href="#" class="learn-more detailslearn"><i class="fa fa-shopping-cart"></i> Purchase</a>
-								<a href="#" class="learn-more detailslearn"><i class="fa fa-link"></i> Details</a>
-							</p>
-						</div>
-						<span class="maxproduct"><img src="images/product1-1.jpg" alt=""></span>
-					</div>
-					<div class="product-details">
-						<a href="#">
-						<h1>Calypso Theme</h1>
-						</a>
-						<span class="price">
-						<span class="edd_price">$49.00</span>
-						</span>
-					</div>
-				</div>
-			</div>
+			
 			<!-- /.productbox -->
-			<div class="col-md-4">
-				<div class="productbox">
-					<div class="fadeshop">
-						<div class="captionshop text-center" style="display: none;">
-							<h3>Item Name</h3>
-							<p>
-								 This is a short excerpt to generally describe what the item is about.
-							</p>
-							<p>
-								<a href="#" class="learn-more detailslearn"><i class="fa fa-shopping-cart"></i> Purchase</a>
-								<a href="#" class="learn-more detailslearn"><i class="fa fa-link"></i> Details</a>
-							</p>
-						</div>
-						<span class="maxproduct"><img src="images/product2.jpg" alt=""></span>
-					</div>
-					<div class="product-details">
-						<a href="#">
-						<h1>FastSell Theme</h1>
-						</a>
-						<span class="price">
-						<span class="edd_price">$49.00</span>
-						</span>
-					</div>
-				</div>
-			</div>
+		
 			<!-- /.productbox -->
+<?php
+foreach($prods as $prod)
+{
+?>
 			<div class="col-md-4">
 				<div class="productbox">
 					<div class="fadeshop">
 						<div class="captionshop text-center" style="display: none;">
-							<h3>Item Name</h3>
+							<h3><?php echo "$prod[1]"?></h3>
 							<p>
-								 This is a short excerpt to generally describe what the item is about.
+								 <?php echo "$prod[2]"?>
 							</p>
 							<p>
 								<a href="#" class="learn-more detailslearn"><i class="fa fa-shopping-cart"></i> Purchase</a>
-								<a href="#" class="learn-more detailslearn"><i class="fa fa-link"></i> Details</a>
+								<!-- on a meet le lien pour acceder a oneproduct -->
+								<?php echo "<a href=ctrl.php?action=detail&num=$prod[0] class='learn-more detailslearn'><i class='fa fa-link'></i> Details</a>";?>
 							</p>
 						</div>
-						<span class="maxproduct"><img src="images/product2-3.jpg" alt=""></span>
+						<span class="maxproduct"><img src="<?php echo '../admin/photos/'.$prod[5].'.jpeg'; ?>" alt=""></span>
 					</div>
 					<div class="product-details">
 						<a href="#">
-						<h1>Biscaya Theme</h1>
+						<h1><?php echo "$prod[1]"?></h1>
 						</a>
 						<span class="price">
-						<span class="edd_price">$49.00</span>
+						<span class="edd_price"><?php echo "$prod[3]"?>$</span>
 						</span>
 					</div>
 				</div>
 			</div>
+<?php
+}
+?>
 		</div>
+
 	</div>
+
 </div>
 </section>
+
 
 
 <!-- BUTTON =============================-->
 <div class="item content">
 	<div class="container text-center">
-		<a href="shop.html" class="homebrowseitems">Browse All Products
+		<?php echo '<a href=ctrl.php?action=allpro class="homebrowseitems">Browse All Products
 		<div class="homebrowseitemsicon">
 			<i class="fa fa-star fa-spin"></i>
 		</div>
-		</a>
+		</a>';?>
 	</div>
 </div>
 <br/>
@@ -328,4 +321,4 @@ jQuery(document).ready(function ($) {
 </script>
 	
 </body>
-</html>
+</html>s

@@ -7,17 +7,35 @@ class ctrl
 	{
 		$this->model=new model();
 	}
+
+
+	//homeAction() shows categories and the 3 latest products in home page it is default 
+	public function homeAction()
+	{
+		$cats=$this->model->allcategories();
+		$prods=$this->model->allProductslimit();
+		require 'Vhome.php';
+	} 
+
+
+	//allProductsAction() is used to show all products -our products in Vproducs.php
 	public function allProductsAction()
 	{
 		$products=$this->model->allProducts();
 
 		require 'Vproducts.php';
 	} 
-	public function formMatAction()
+
+	//ProductDetailAction() used to show each product details
+	public function ProductDetailAction()
 	{
-		$cats=$this->model->allCategories();
-		require 'VFormMaterial.php';
-	} 
+		
+		$num=array($_GET['num']);
+		$prod=$this->model->oneProduct($num);
+		require 'Vproductdetail.php';
+	}
+
+	
 	public function addMaterialAction()
 	{
 		$material=array(null,$_POST['intitule'],$_POST['description'],$_POST['type'],$_POST['datedefabrication'],$_POST['prix'],$_POST['categorie']);
@@ -58,29 +76,19 @@ class ctrl
 		$this->model->updateMaterial($material);
 		header('location:ctrl.php?action=allmat');
 	}
-	public function oneProductAction()
-	{
-		/*
-		.....
-		récupérer le numéro du matériel à afficher
-		récupérer via le modèle ce materiel
-		le donner à la vue (tableau) pour affichage
-		prévoir dans la vue un lien de retour vers le controlleur
-		*/
-		$num=array($_GET['num']);
-		$prod=$this->model->oneProduct($num);
-		require 'Vproductdetail.php';
-	}
+	
 	public function action()
 	{
-		$action="allmat";
+		$action="home";
 		if(isset($_GET['action'])) $action=$_GET['action'];
 		switch($action)
 		{
-			case 'allmat' : $this->allProductsAction();break;
-			case 'detail': $this->oneProductAction();break;
-			case 'add':$this->addMaterialAction();break;
-			//case 'del' : $this->delMaterialAction();break;
+			case 'home':$this->homeAction();break;
+			case 'allpro' : $this->allProductsAction();break;
+			case 'detail': $this->ProductDetailAction();break;
+
+
+			
 			case 'edit' : $this->editMaterialAction();break;
 			case 'update' : $this->updateMaterialAction();
 			case 'one' : $this->oneMaterialAction();break;
