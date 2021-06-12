@@ -15,5 +15,5 @@ $queryy="insert into admin(	nom_admin, prenom_admin,email,admin_password) values
 
 echo $queryy;
 mysqli_query($connect,$queryy);
-//header('location:allproduct.php');
+header('location:Vallproduct.php');
 ?>
