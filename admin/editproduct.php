@@ -64,7 +64,7 @@ $mat=mysqli_fetch_row($mat2);
           <div class="tm-bg-primary-dark tm-block tm-block-h-auto">
             <div class="row">
               <div class="col-12">
-                <h2 class="tm-block-title d-inline-block">Add Product</h2>
+                <h5 class="tm-block-title d-inline-block d-flex justify-content-center display-4">Edit Product</h5>
               </div>
             </div>
             <div class="row tm-edit-product-row">
@@ -176,7 +176,6 @@ $mat=mysqli_fetch_row($mat2);
                       value="<?php echo $mat[4];?>"
                       type="file"
                       class="form-control validate"
-                      required
                     />
                     
 
@@ -206,7 +205,7 @@ $mat=mysqli_fetch_row($mat2);
                       value="<?php echo $mat[5];?>"
                       type="file"
                       class="form-control validate"
-                      required
+                     
                     />
               </div>
                     <div class="form-image mb-3">
@@ -231,13 +230,13 @@ $mat=mysqli_fetch_row($mat2);
                       value="<?php echo $mat[6];?>"
                       type="file"
                       class="form-control validate"
-                      required
+                     
                     />
               </div>
               </div>
 
               <div class="col-12">
-                <button type="submit" class="btn btn-primary btn-block text-uppercase">Add Product Now</button>
+                <button type="submit" class="btn btn-primary btn-block text-uppercase">Update Your  Product Now</button>
               </div>
             </form>
             </div>

@@ -9,7 +9,6 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Roboto:400,700"
     />
-    <!---->
     <!-- https://fonts.google.com/specimen/Roboto -->
     <link rel="stylesheet" href="css/fontawesome.min.css" />
     <!-- https://fontawesome.com/ -->
@@ -29,9 +28,7 @@
   </head>
 
   <body>
-  <?php//* require 'connexion.php';
-     //   require 'verfsession.php';
-  ?>
+  
 
  
     <div class="container tm-mt-big tm-mb-big">
@@ -40,20 +37,20 @@
           <div class="tm-bg-primary-dark tm-block tm-block-h-auto">
             <div class="row">
               <div class="col-12">
-                <h2 class="tm-block-title d-inline-block">Add partner</h2>
+                <h1 class="tm-block-title d-inline-block d-flex justify-content-center display-4">Add Category</h1>
               </div>
             </div>
             <div class="row tm-edit-product-row">
               <div class="col-xl-6 col-lg-6 col-md-12">
-                <form action="adduser.php" method="post" enctype="multipart/form-data" name="frm" >
+                 <form action="addcat.php" method="post" enctype="multipart/form-data" name="frm" >
                   <div class="form-group mb-3">
                     <label
                       for="name"
-                      >first name
+                      >category Name
                     </label>
                     <input
                       id="name"
-                      name="first_name"
+                      name="nom_categorie"
                       type="text"
                       class="form-control validate"
                       required
@@ -61,50 +58,39 @@
                   </div>
                   <div class="form-group mb-3">
                     <label
-                      for="name"
-                      >last name
-                    </label>
-                    <input
-                      id="name"
-                      name="last_name"
-                      type="text"
+                      for="description"
+                      >Description</label
+                    >
+                    <textarea
+                      name='Description'
                       class="form-control validate"
+                      rows="3"
                       required
-                    />
+                    ></textarea>
                   </div>
-                  <div class="form-group mb-3">
-                    <label
-                      for="name"
-                      >email 
-                    </label>
-                    <input
-                      id="name"
-                      name="email"
-                      type="email"
-                      class="form-control validate"
-                      required
-                    />
-                  </div>
-                  <div class="form-group mb-3">
-                    <label
-                      for="name"
-                      >password 
-                    </label>
-                    <input
-                      id="name"
-                      name="password"
-                      type="text"
-                      class="form-control validate"
-                      required
-                    />
+                  
+                  <div class="row">
+                        <div class="form-group mb-3">
+                         
+                          <label
+                            for="name"
+                            >Photo :
+                          </label>
+                          <input
+                            id="name"
+                            name="photo"
+                            type="file"
+                            class="form-control validate"
+                            required
+                          />
+            </div>
                   </div>
                   
               </div>
               
-              
 
               <div class="col-12">
-                <button type="submit" class="btn btn-primary btn-block text-uppercase">Add your partner now</button>
+                <button type="submit" class="btn btn-primary btn-block text-uppercase">Add category Now</button>
               </div>
             </form>
             </div>
