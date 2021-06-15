@@ -189,7 +189,8 @@ foreach($prods as $prod)
 								 <?php echo "$prod[2]"?>
 							</p>
 							<p>
-								<a href="#" class="learn-more detailslearn"><i class="fa fa-shopping-cart"></i> Purchase</a>
+								<!--shop product-->
+								<?php echo "<a href=ctrl.php?action=purchase class='learn-more detailslearn'><i class='fa fa-shopping-cart'></i> purchasee</a>";?>
 								<!-- on a meet le lien pour acceder a oneproduct -->
 								<?php echo "<a href=ctrl.php?action=detail&num=$prod[0] class='learn-more detailslearn'><i class='fa fa-link'></i> Details</a>";?>
 							</p>

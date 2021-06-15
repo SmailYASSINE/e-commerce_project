@@ -24,10 +24,6 @@ class model
 	}
 	public function oneProduct($A)
 	{
-		/*.......
-		cherche et retourner un seul matériel
-		utiliser la méthode fetch()
-		*/
 		$query=$this->db->prepare('SELECT `nom_produit`,produit.`description`,`prix`,`nom_categorie`,`image1` FROM produit,categorie WHERE produit.`id_categorie`=categorie.`id_categorie`AND `id_produit`=?');
 		$query->execute($A);
 		return ($query->fetchAll());
@@ -38,6 +34,23 @@ class model
 		$query->execute();
 		return $query->fetchAll();
 	}
+
+	public function checkoutProduct($A)
+	{
+		$query=$this->db->prepare('SELECT `nom_produit`,`prix`,`image1`,`id_produit` FROM produit WHERE  `id_produit`=?');
+		$query->execute($A);
+		return ($query->fetchAll());
+	}
+	public function addclient($client,$commande)
+	{
+		$query1=$this->db->prepare("INSERT INTO client (id_client,`num_tel`,`nom_client`,`prenom_client`,`addresse`) values(?,?,?,?,?)");
+		$query1->execute($client);
+		$query2=$this->db->prepare("INSERT INTO commande (id_commande,id_client,id_produit ) VALUES (?,?,?);");
+		$query2->execute($commande);
+
+	}
+
+
 	
 }
 
