@@ -35,13 +35,38 @@ class ctrl
 		require 'Vproductdetail.php';
 	}
 
-	
-	public function addMaterialAction()
+	//checkout function 
+	public function ProductpurchaseAction()
 	{
-		$material=array(null,$_POST['intitule'],$_POST['description'],$_POST['type'],$_POST['datedefabrication'],$_POST['prix'],$_POST['categorie']);
-		$this->model->addMaterial($material);
-		header('location:ctrl.php?action=allmat');
+		
+		$nume=array($_GET['num']);
+		$prod=$this->model->checkoutProduct($nume);
+
+		require 'checkout.php';
+	}
+	
+
+	public function clientinfoAction()
+	{
+		$client=array(null,$_POST['tel'],$_POST['first_name'],$_POST['last_name'],$_POST['address']);
+		$commande=array(null,'".mysql_insert_id()."',$_POST['idpro']);
+		$a=$this->model->addclient($client,$commande);
+		header('location:ctrl.php?action=home');
 	} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	public function delMaterialAction()
 	{
@@ -86,7 +111,8 @@ class ctrl
 			case 'home':$this->homeAction();break;
 			case 'allpro' : $this->allProductsAction();break;
 			case 'detail': $this->ProductDetailAction();break;
-
+			case 'purchase': $this->ProductpurchaseAction();break;
+			case 'clientinfo' : $this->clientinfoAction();break;
 
 			
 			case 'edit' : $this->editMaterialAction();break;

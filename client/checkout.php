@@ -64,8 +64,14 @@
 			</span>
 		</div>
 	</div>
+		<?php
+ foreach($prod as $product)
+ {
+ ?>
 	<div id="edd_checkout_wrap" class="col-md-8 col-md-offset-2">
-		<form id="edd_checkout_cart_form" method="post">
+
+		<form id="edd_checkout_cart_form" method="post" action="ctrl.php?action=clientinfo">
+
 			<div id="edd_checkout_cart_wrap">
 				<table id="edd_checkout_cart" class="ajaxed">
 				<thead>
@@ -85,12 +91,12 @@
 				<tr class="edd_cart_item" id="edd_cart_item_0_25" data-download-id="25">
 					<td class="edd_cart_item_name">
 						<div class="edd_cart_item_image">
-							<img width="25" height="25" src="images/scorilo2-70x70.jpg" alt="">
+							<img width="30" height="30" src="<?php echo '../admin/photos/'.$product[2].'.jpeg'; ?>"   alt="">
 						</div>
-						<span class="edd_checkout_cart_item_title">Audio Item - Single License</span>
+						<span class="edd_checkout_cart_item_title"><?php echo "$product[0]";?></span>
 					</td>
 					<td class="edd_cart_item_price">
-						 $11.99
+						 <?php echo "$product[1]";?>$
 					</td>
 					<td class="edd_cart_actions">
 						<a class="edd_cart_remove_item_btn" href="#">Remove</a>
@@ -115,26 +121,33 @@
 				</tfoot>
 				</table>
 			</div>
+
 		</form>
+
 		<div id="edd_checkout_form_wrap" class="edd_clearfix">
-			<form id="edd_purchase_form" class="edd_form" action="#" method="POST">
+			<form id="edd_purchase_form" class="edd_form" action="ctrl.php?action=clientinfo" method="POST">
 				<fieldset id="edd_checkout_user_info">
 					<legend>Personal Info</legend>
 					<p id="edd-email-wrap">
 						<label class="edd-label" for="edd-email">
 						Email Address <span class="edd-required-indicator">*</span></label>
-						<input class="edd-input required" type="email" name="edd_email" placeholder="Email address" id="edd-email" value="">
+						<input class="edd-input required" type="tel" name="tel" placeholder="Email address" id="edd-email" value="">
 					</p>
 					<p id="edd-first-name-wrap">
 						<label class="edd-label" for="edd-first">
 						First Name <span class="edd-required-indicator">*</span>
 						</label>
-						<input class="edd-input required" type="text" name="edd_first" placeholder="First name" id="edd-first" value="" required="">
+						<input class="edd-input required" type="text" name="first_name" placeholder="First name" id="edd-first" value="" required="">
 					</p>
 					<p id="edd-last-name-wrap">
 						<label class="edd-label" for="edd-last">
 						Last Name </label>
-						<input class="edd-input" type="text" name="edd_last" id="edd-last" placeholder="Last name" value="">
+						<input class="edd-input" type="text" name="last_name" id="last_name" placeholder="Last name" value="">
+					</p>
+					<p id="edd-last-name-wrap">
+						<label class="edd-label" for="edd-last">
+						Address </label>
+						<textarea class="edd-input" type="text" name="address" id="" placeholder="Last name" value=""></textarea>
 					</p>
 				</fieldset>
 				<fieldset id="edd_purchase_submit">
@@ -142,13 +155,18 @@
 						<strong>Purchase Total:</strong>
 						<span class="edd_cart_amount" data-subtotal="11.99" data-total="11.99">$11.99</span>
 					</p>
-					<input type="hidden" name="edd_action" value="purchase">
+					<!--to recupirate ip product-->
+					<input type="hidden" name="idpro" value="<?php echo "$product[0]";?>">
 					<input type="hidden" name="edd-gateway" value="manual">
 					<input type="submit" class="edd-submit button" id="edd-purchase-button" name="edd-purchase" value="Purchase">
 				</fieldset>
 			</form>
 		</div>
 	</div>
+<?php
+ }
+ ?>
+,$
 </div>
 </section>
 

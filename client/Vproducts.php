@@ -91,7 +91,11 @@ else
 							 <?php echo "$pro[2]";?>
 						</p>
 						<p>
-							<a href="#" class="learn-more detailslearn"><i class="fa fa-shopping-cart"></i> Purchase</a>
+							<!--purchase-->
+							<?php echo "<a href=ctrl.php?action=purchase&num=$pro[0] class='learn-more detailslearn'><i class='fa fa-shopping-cart'></i> purchasee</a>";?>
+
+
+							<!--detail -->
 							<?php echo "<a href=ctrl.php?action=detail&num=$pro[0] class='learn-more detailslearn'><i class='fa fa-link'></i> Details</a>";?>
 						</p>
 					</div>

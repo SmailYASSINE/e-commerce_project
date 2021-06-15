@@ -86,7 +86,7 @@
 		</div>
 		<div class="col-md-4">
 			<a href="#" class="btn btn-buynow">shop now</a>
-			<div class="properties-box">
+			<div class="properties-box">	
 				<ul class="unstyle">
 					<li><b class="propertyname">name: </b><?php echo "$product[1]";?></li>
 					<li><b class="propertyname">price: </b><?php echo "$product[2]";?>$</li>
