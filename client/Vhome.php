@@ -4,15 +4,22 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="">
+
 <link href="css/bootstrap.min.css" rel="stylesheet">
+
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
 <link href="css/style.css" rel="stylesheet">
+
 <link href="https://fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Roboto:200,300,400,500,600,700" rel="stylesheet">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" >
+
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
 </head>
 <body>
 
@@ -21,16 +28,20 @@
 <header class="item header margin-top-0">
 <div class="wrapper">
 	<nav role="navigation" class="navbar navbar-white navbar-embossed navbar-lg navbar-fixed-top">
-	<div class="container">
-		<div class="navbar-header">
+	<div class="container-fluid">
+	<div class="navbar-header">
 			<button data-target="#navbar-collapse-02" data-toggle="collapse" class="navbar-toggle" type="button">
 			<i class="fa fa-bars"></i>
 			<span class="sr-only">Toggle navigation</span>
 			</button>
-			<a href="index.html" class="navbar-brand brand"> SCORILO </a>
-		</div>
+			
+	</div>
+	
 		<div id="navbar-collapse-02" class="collapse navbar-collapse">
-			<ul class="nav navbar-nav navbar-right">
+		<ul class="nav navbar-nav navbar-left d-inline">
+				<li class="propClone"><a href="ctrl.php">Interface Client</a></li>
+</ul>
+			<ul class="nav navbar-nav navbar-right d-inline">
 				<li class="propClone"><a href="ctrl.php">Home</a></li>
 				<li class="propClone"><a href="shop.html">Categories</a></li>
 				<li class="propClone"><?php echo '<a href=ctrl.php?action=allpro >Our Products</a>';?></li>
@@ -40,6 +51,7 @@
 		</div>
 	</div>
 	</nav>
+
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12 text-center">
@@ -57,34 +69,56 @@
 </div>
 </header>
 
+<style>
 
+.ccc{
+	
+	background: rgba(23, 60, 255, 0.33);
+}
+
+
+</style>
 
 
 		
 
 <!-- STEPS =============================-->
 <div class="item content">
-	<div class="container toparea">
-		
-<?php
-foreach($cats as $cat)
-{
-?>
+	<div class="container toparea w-50">
+	<div class="shadow-lg p-3 mb-5 rounded d-flex justify-content-center"><h1> Our Main Categories :</h1></div>
+	
+
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 	  <ol class="carousel-indicators">
 	    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
 	    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
 	    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
 	  </ol>
+	  <?php
+	  $v=0;
+?>
 		  <div class="carousel-inner">
-		    <div class="carousel-item active">
+		  <?php
+		  foreach($cats as $cat)
+{
+?>
+			  <?php if ($v==0)  
+			  
+			  		   { echo '<div class="carousel-item active">'; }				
+			  		else echo '<div class="carousel-item">';
+?>
+				
 		      <img class="d-block style="width: 100px; height: 200px;" src="<?php echo '../admin/photos/'.$cat[2].'.jpeg'; ?>"alt="First slide">
-		      	  <div class="carousel-caption d-none d-md-block">
-    				<h5>..jil;fhrvomdvhjo:vh lnftm.</h5>
-    				<p>..nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn.</p>
+		      	  <div class="carousel-caption d-none d-md-block ccc">
+    				<h1><?php echo "$cat[0]";?></h1>
+    				<p><?php echo "$cat[1]";?></p>
   				  </div>
 
 		       </div>
+			   <?php
+		$v=1;
+}
+?>
 
 	  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
 	    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -95,9 +129,7 @@ foreach($cats as $cat)
 	    <span class="sr-only">Next</span>
 	  </a>
 </div>
-<?php
-}
-?>
+
 
 
 
@@ -121,7 +153,7 @@ foreach($cats as $cat)
 		
 	</div>
 </div>
-	
+
 	
 	<!-- LATEST ITEMS =============================-->
 <section class="item content">
@@ -166,7 +198,7 @@ foreach($prods as $prod)
 					</div>
 					<div class="product-details">
 						<a href="#">
-						<h1><?php echo "$prod[1]"?></h1>
+						<h5><?php echo "$prod[1]"?></h5>
 						</a>
 						<span class="price">
 						<span class="edd_price"><?php echo "$prod[3]"?>$</span>
@@ -249,7 +281,20 @@ foreach($prods as $prod)
 <!-- TESTIMONIAL =============================-->
 <div class="item content">
 	<div class="container">
-		<div class="col-md-10 col-md-offset-1">
+		<div class="col-md-5 col-md-offset-0">
+			<div class="slide-text">
+			<h2 class="uppercase">Smail YASSINE</h2>
+				<div>
+					
+					<img src="../client/images/Smail.jpg" alt="Awesome Support">
+					<p>
+					Smail YASSINE is a changemaker, it is one of his priorities to be a social entrepreneur in his university and his  society. He is a member of different programs/entities, in which he designed events, strategies, and workshops for local, social, and economic fields.
+					</p>
+					<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-5 col-md-offset-1">
 			<div class="slide-text">
 				<div>
 					<h2><span class="uppercase">Awesome Support</span></h2>
