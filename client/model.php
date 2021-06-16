@@ -50,7 +50,12 @@ class model
 
 	}
 
-
+	public function checkoutProductsession($A)
+	{
+		$query=$this->db->prepare('SELECT `nom_produit`,`prix`,`image1`,`id_produit` FROM produit WHERE  `id_produit`=?');
+		$query->execute($A);
+		return ($query->fetchAll());
+	}
 	
 }
 

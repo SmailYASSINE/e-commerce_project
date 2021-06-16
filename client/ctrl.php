@@ -54,7 +54,25 @@ class ctrl
 		header('location:ctrl.php?action=home');
 	} 
 
+//session pour recupirer les ids des produits acheter
+	public function addtocartAction()
+	{
+		session_start();
+		//$_SESSION['id']=$_GET['num'];
+		if(empty($_SESSION['id'])){
+		$_SESSION['id']=array();
+		}
+		array_push($_SESSION['id'], $_GET['num']);
+		$c=$_SESSION['id'];
+		$length = count($_SESSION['id']);
+		$b=array();
+		for($i=0;$i<$length;$i++)
+		{
+			$b[i]=array($this->model->checkoutProductsession($_SESSION['id'][i]));
 
+		}
+		require 'checkout.php';
+	} 
 
 
 
@@ -113,9 +131,9 @@ class ctrl
 			case 'detail': $this->ProductDetailAction();break;
 			case 'purchase': $this->ProductpurchaseAction();break;
 			case 'clientinfo' : $this->clientinfoAction();break;
+			case 'addtocart' : $this->addtocartAction();break;
 
-			
-			case 'edit' : $this->editMaterialAction();break;
+
 			case 'update' : $this->updateMaterialAction();
 			case 'one' : $this->oneMaterialAction();break;
 

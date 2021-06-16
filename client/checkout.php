@@ -65,6 +65,7 @@
 		</div>
 	</div>
 		<?php
+print_r($c);
  foreach($prod as $product)
  {
  ?>

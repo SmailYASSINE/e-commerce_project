@@ -98,6 +98,10 @@ else
 							<!--detail -->
 							<?php echo "<a href=ctrl.php?action=detail&num=$pro[0] class='learn-more detailslearn'><i class='fa fa-link'></i> Details</a>";?>
 						</p>
+						<!--add to cart-->
+						<p>
+							<?php echo "<a href=ctrl.php?action=addtocart&num=$pro[0] class='learn-more detailslearn'><i class='fa fa-link'></i> add to cart</a>";?>
+						</p>
 					</div>
 					<span class="maxproduct"><img src="<?php echo '../admin/photos/'.$pro[5].'.jpeg'; ?>"></span>
 				</div>
