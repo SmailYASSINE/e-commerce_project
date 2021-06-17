@@ -97,6 +97,7 @@ else
 
 							<!--detail -->
 							<?php echo "<a href=ctrl.php?action=detail&num=$pro[0] class='learn-more detailslearn'><i class='fa fa-link'></i> Details</a>";?>
+							<?php echo "<a href=ctrl.php?action=detail&num=$pro[0] class='learn-more detailslearn'><i class='fa fa-cart-plus'></i> Add To Card</a>";?>
 						</p>
 					</div>
 					<span class="maxproduct"><img src="<?php echo '../admin/photos/'.$pro[5].'.jpeg'; ?>"></span>

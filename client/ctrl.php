@@ -44,21 +44,18 @@ class ctrl
 
 		require 'checkout.php';
 	}
+
+	//add to cart 
+	
 	
 
 	public function clientinfoAction()
 	{
 		$client=array(null,$_POST['tel'],$_POST['first_name'],$_POST['last_name'],$_POST['address']);
-		$commande=array(null,'".mysql_insert_id()."',$_POST['idpro']);
-		$a=$this->model->addclient($client,$commande);
+		//$commande=array(null,'".mysql_insert_id()."',$_POST['idpro']);
+		$a=$this->model->addclient($client);
 		header('location:ctrl.php?action=home');
 	} 
-
-
-
-
-
-
 
 
 

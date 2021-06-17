@@ -41,15 +41,14 @@ class model
 		$query->execute($A);
 		return ($query->fetchAll());
 	}
-	public function addclient($client,$commande)
+	public function addclient($client)
 	{
 		$query1=$this->db->prepare("INSERT INTO client (id_client,`num_tel`,`nom_client`,`prenom_client`,`addresse`) values(?,?,?,?,?)");
 		$query1->execute($client);
-		$query2=$this->db->prepare("INSERT INTO commande (id_commande,id_client,id_produit ) VALUES (?,?,?);");
-		$query2->execute($commande);
+		//$query2=$this->db->prepare("INSERT INTO commande (id_commande,id_client,id_produit ) VALUES (?,?,?);");
+	//	$query2->execute($commande);
 
 	}
-
 
 	
 }
