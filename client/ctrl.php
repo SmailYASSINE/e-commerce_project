@@ -58,6 +58,66 @@ class ctrl
 	public function addtocartAction()
 	{
 		session_start();
+		switch($_GET["action"]) {
+	case "add":
+		if(!empty($_POST["quantity"])) {
+			
+			$itemArray = array($_POST["id_produit"]=>array('nom_produit'=>$_POST["nom_produit"], 'prix'=>$_POST["prix"], 'image1'=>$_POST["image1"]));
+			
+			if(!empty($_SESSION["cart_item"])) {
+				if(in_array($_POST["id_produit"],array_keys($_SESSION["cart_item"]))) {
+					foreach($_SESSION["cart_item"] as $k => $v) {
+							if($_POST["id_produit"] == $k) {
+								if(empty($_SESSION["cart_item"][$k]["quantity"])) {
+									$_SESSION["cart_item"][$k]["quantity"] = 0;
+								}
+								$_SESSION["cart_item"][$k]["quantity"] += $_POST["quantity"];
+							}
+					}
+				} else {
+					$_SESSION["cart_item"] = array_merge($_SESSION["cart_item"],$itemArray);
+				}
+			} else {
+				$_SESSION["cart_item"] = $itemArray;
+			}
+		}
+	break;
+	case "remove":
+		if(!empty($_SESSION["cart_item"])) {
+			foreach($_SESSION["cart_item"] as $k => $v) {
+					if($_GET["id_produit"] == $k)
+						unset($_SESSION["cart_item"][$k]);				
+					if(empty($_SESSION["cart_item"]))
+						unset($_SESSION["cart_item"]);
+			}
+		}
+
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
 		//$_SESSION['id']=$_GET['num'];
 		if(empty($_SESSION['id'])){
 		$_SESSION['id']=array();
@@ -71,6 +131,7 @@ class ctrl
 			$b[i]=array($this->model->checkoutProductsession($_SESSION['id'][i]));
 
 		}
+		*/
 		require 'checkout.php';
 	} 
 
