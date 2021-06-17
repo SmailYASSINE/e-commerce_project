@@ -57,6 +57,45 @@ class ctrl
 		header('location:ctrl.php?action=home');
 	} 
 
+//session pour recupirer les ids des produits acheter
+	public function addtocartAction()
+	{
+		session_start();
+		switch($_GET["action"]) {
+	case "add":
+		if(!empty($_POST["quantity"])) {
+			
+			$itemArray = array($_POST["id_produit"]=>array('nom_produit'=>$_POST["nom_produit"], 'prix'=>$_POST["prix"], 'image1'=>$_POST["image1"]));
+			
+			if(!empty($_SESSION["cart_item"])) {
+				if(in_array($_POST["id_produit"],array_keys($_SESSION["cart_item"]))) {
+					foreach($_SESSION["cart_item"] as $k => $v) {
+							if($_POST["id_produit"] == $k) {
+								if(empty($_SESSION["cart_item"][$k]["quantity"])) {
+									$_SESSION["cart_item"][$k]["quantity"] = 0;
+								}
+								$_SESSION["cart_item"][$k]["quantity"] += $_POST["quantity"];
+							}
+					}
+				} else {
+					$_SESSION["cart_item"] = array_merge($_SESSION["cart_item"],$itemArray);
+				}
+			} else {
+				$_SESSION["cart_item"] = $itemArray;
+			}
+		}
+	break;
+	case "remove":
+		if(!empty($_SESSION["cart_item"])) {
+			foreach($_SESSION["cart_item"] as $k => $v) {
+					if($_GET["id_produit"] == $k)
+						unset($_SESSION["cart_item"][$k]);				
+					if(empty($_SESSION["cart_item"]))
+						unset($_SESSION["cart_item"]);
+			}
+		}
+
+	}
 
 
 
@@ -65,6 +104,55 @@ class ctrl
 
 
 
+
+
+
+<<<<<<< HEAD
+=======
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+		//$_SESSION['id']=$_GET['num'];
+		if(empty($_SESSION['id'])){
+		$_SESSION['id']=array();
+		}
+		array_push($_SESSION['id'], $_GET['num']);
+		$c=$_SESSION['id'];
+		$length = count($_SESSION['id']);
+		$b=array();
+		for($i=0;$i<$length;$i++)
+		{
+			$b[i]=array($this->model->checkoutProductsession($_SESSION['id'][i]));
+
+		}
+		*/
+		require 'checkout.php';
+	} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> c45dcdbf84b0149681dd34c76e1f6b168a127b40
 	public function delMaterialAction()
 	{
 		$num=array($_GET['num']);
@@ -110,9 +198,9 @@ class ctrl
 			case 'detail': $this->ProductDetailAction();break;
 			case 'purchase': $this->ProductpurchaseAction();break;
 			case 'clientinfo' : $this->clientinfoAction();break;
+			case 'addtocart' : $this->addtocartAction();break;
 
-			
-			case 'edit' : $this->editMaterialAction();break;
+
 			case 'update' : $this->updateMaterialAction();
 			case 'one' : $this->oneMaterialAction();break;
 

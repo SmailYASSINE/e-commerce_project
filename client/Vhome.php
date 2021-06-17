@@ -196,6 +196,10 @@ foreach($prods as $prod)
 								<?php echo "<a href=ctrl.php?action=detail&num=$prod[0] class='learn-more detailslearn'><i class='fa fa-cart-plus'></i> Add To Card</a>";?>
 
 							</p>
+							<!--add to cart-->
+						<p>
+							<?php echo "<a href=ctrl.php?action=detail&num=$prod[0] class='learn-more detailslearn'><i class='fa fa-link'></i> Details</a>";?>
+						</p>
 						</div>
 						<span class="maxproduct"><img src="<?php echo '../admin/photos/'.$prod[5].'.jpeg'; ?>" alt=""></span>
 					</div>

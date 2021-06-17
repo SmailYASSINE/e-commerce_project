@@ -65,7 +65,7 @@
 		</div>
 	</div>
 		<?php
- foreach($prod as $product)
+ foreach($_SESSION["cart_item"] as $product)
  {
  ?>
 	<div id="edd_checkout_wrap" class="col-md-8 col-md-offset-2">
@@ -91,13 +91,16 @@
 				<tr class="edd_cart_item" id="edd_cart_item_0_25" data-download-id="25">
 					<td class="edd_cart_item_name">
 						<div class="edd_cart_item_image">
-							<img width="30" height="30" src="<?php echo '../admin/photos/'.$product[2].'.jpeg'; ?>"   alt="">
+							<img width="30" height="30" src="<?php echo '../admin/photos/'.$product["prix"].'.jpeg'; ?>"   alt="">
 						</div>
-						<span class="edd_checkout_cart_item_title"><?php echo "$product[0]";?></span>
+						<span class="edd_checkout_cart_item_title"><?php echo '$product["prix"]';?></span>
 					</td>
 					<td class="edd_cart_item_price">
-						 <?php echo "$product[1]";?>$
+						 <?php echo '$product["item"]';?>$
 					</td>
+					<td>
+					<input type="text" class="product-quantity" name="quantity" value="1" size="2" /><input type="submit" value="Add to Cart" class="btnAddAction" />
+				</td>
 					<td class="edd_cart_actions">
 						<a class="edd_cart_remove_item_btn" href="#">Remove</a>
 					</td>
@@ -156,7 +159,7 @@
 						<span class="edd_cart_amount" data-subtotal="11.99" data-total="11.99">$11.99</span>
 					</p>
 					<!--to recupirate ip product-->
-					<input type="hidden" name="idpro" value="<?php echo "$product[0]";?>">
+					<input type="hidden" name="idpro" value="<?php echo '$product["prix"]';?>">
 					<input type="hidden" name="edd-gateway" value="manual">
 					<input type="submit" class="edd-submit button" id="edd-purchase-button" name="edd-purchase" value="Purchase">
 				</fieldset>
