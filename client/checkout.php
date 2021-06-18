@@ -84,16 +84,21 @@
 					<th class="edd_cart_item_price">
 						 Item Price
 					</th>
+					<th class="edd_cart_item_quantity">
+						 Item Quantity
+					</th>					
 					<th class="edd_cart_actions">
 						 Actions
 					</th>
+
 				</tr>
 				</thead>
 				<tbody>
 				<?php
+				print_r($prod);
 				for($i=0;$i<count($prod);$i++)
 				{
-				foreach($prod[$i] as $key => $value)
+				foreach($prod[$i] as $key=>$value)
 				 {
 					 
 				
@@ -112,7 +117,9 @@
 					<td class="edd_cart_item_price">
 						 <?php echo $value["prix"];?>$
 					</td>
-					
+					<td class="edd_cart_item_quantity">
+						 <?php echo $qnt[$i];?>
+					</td>					
 					
 					<td class="edd_cart_actions">
 						<a class="edd_cart_remove_item_btn" href="#">Remove</a>

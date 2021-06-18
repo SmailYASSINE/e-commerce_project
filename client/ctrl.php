@@ -69,6 +69,7 @@ class ctrl
                 $count=count($_SESSION["cart"]);
                 $item_array=array(
                     'product_id'=> $_GET["num"],
+					'quantity'=>$_POST["quantity"],
                 );
             $_SESSION["cart"][$count]=$item_array;
 			header('location:ctrl.php?action=allpro');
@@ -81,7 +82,7 @@ class ctrl
 			$_SESSION["cart"]=array();
             $item_array=array(
                 'product_id'=> $_GET["num"],
-				//'quantity'=> $_POST["quantity"]
+				'quantity'=> $_POST["quantity"],
             );
             $_SESSION["cart"][0]=$item_array;
 			header('location:ctrl.php?action=allpro');
@@ -97,6 +98,7 @@ class ctrl
     {
         session_start();
 		$prod=array();
+		$qnt=array();
 
 
         foreach($_SESSION["cart"] as $key => $value){
@@ -104,6 +106,8 @@ class ctrl
 
 
             array_push($prod, $this->model->checkoutProductsession($n));
+			array_push($qnt, $value['quantity']);
+
             
         }
 		require 'checkout.php';
@@ -114,40 +118,7 @@ class ctrl
 
 
 
-	public function delMaterialAction()
-	{
-		$num=array($_GET['num']);
-		
-		$this->model->delMaterial($num);
-		header('location:ctrl.php?action=allmat');
-	} 
-	public function editMaterialAction()
-	{
-		/*
-		.....
-		récupérer le numéro du matériel à modifier
-		récupérer via le modèle ce materiel
-		le donner à la vue (formedit) pour affichage
-		*/
-		$num=array($_GET['num']);
-		$mate=$this->model->oneMaterial($num);
-		require 'VEditMateriel.php';
-
-	} 
-	public function updateMaterialAction()
-	{
-		/*
-		.....
-		récupérer les informations du matériel à modifier
-		les passez au modèle dans un array
-		redirection vers laction allmat
-		*/
-		
-		$material=array($_POST['Intitule'],$_POST['Description'],$_POST['Type'],$_POST['datedefabrication'],$_POST['prix'],$_POST['categorie'],$_GET['num']);
-		$this->model->updateMaterial($material);
-		header('location:ctrl.php?action=allmat');
-	}
-
+	
 	
 	public function action()
 	{

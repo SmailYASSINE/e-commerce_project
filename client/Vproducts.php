@@ -112,10 +112,17 @@ else
 					</a>
 					<span class="price">
 					<span class="edd_price"><?php echo "$pro[3]"."$"?></span><br> <br>
+
 					
+					
+					<?php /*echo "<a href=ctrl.php?action=addtocart&num=$pro[0] class='learn-more detailslearn'><i class='fa fa-shopping-cart btnAddAction'></i> Add to cart</a>";*/?>
+					<form method="post" action="ctrl.php?action=addtocart&num=<?php echo $pro[0]?>">
 					<td>
-					<input type="number" class="product-quantity" name="quantity" value="1" size="2" /><input type="submit" value="Add to Cart" class="btnAddAction" />
-				</td
+					
+					<input type="text" class="product-quantity" name="quantity" value="" size="2" />
+					<input type="submit" name="add to card" value="Add To Card">
+				</td>
+				</form>
 					</span>
 				</div>
 			</div>
@@ -123,8 +130,10 @@ else
 <?php
 }
 }
+foreach($_SESSION["cart"] as $key=>$value){
+	print_r($value["quantity"]);
+}
 
-print_r($_SESSION["cart"]);
 ?>
 
 
