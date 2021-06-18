@@ -81,6 +81,7 @@ class ctrl
 			$_SESSION["cart"]=array();
             $item_array=array(
                 'product_id'=> $_GET["num"],
+				//'quantity'=> $_POST["quantity"]
             );
             $_SESSION["cart"][0]=$item_array;
 			header('location:ctrl.php?action=allpro');
