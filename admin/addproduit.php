@@ -18,7 +18,7 @@ if($_FILES["image1"]["error"]==0 && $_FILES["image2"]["error"]==0 && $_FILES["im
 	$id_image2=uniqid();
 	$id_image3=uniqid();
 
-		move_uploaded_file($_FILES["image1"]["tmp_name"],  "C:/xampp/htdocs/e-commerce_project/admin/photos/".$id_image1.".jpeg");
+		move_uploaded_file($_FILES["image1"]["tmp_name"], "C:/xampp/htdocs/e-commerce_project/admin/photos/".$id_image1.".jpeg");
 		move_uploaded_file($_FILES["image2"]["tmp_name"], "C:/xampp/htdocs/e-commerce_project/admin/photos/".$id_image2.".jpeg");
 		move_uploaded_file($_FILES["image3"]["tmp_name"], "C:/xampp/htdocs/e-commerce_project/admin/photos/".$id_image3.".jpeg");
 	
@@ -28,5 +28,5 @@ if($_FILES["image1"]["error"]==0 && $_FILES["image2"]["error"]==0 && $_FILES["im
 }
 echo $queryy;
 mysqli_query($connect,$queryy);
-//	header('location:Vallproduct.php');
+header('location:Vallproduct.php');
 ?>
