@@ -54,7 +54,7 @@
 <div class="container toparea">
 	<div class="underlined-title">
 		<div class="editContent">
-			<h1 class="text-center latestitems">MAKE PAYMENT</h1>
+			<h1 class="text-center latestitems">Add to Cart Panel</h1>
 		</div>
 		<div class="wow-hr type_short">
 			<span class="wow-hr-h">
@@ -64,17 +64,9 @@
 			</span>
 		</div>
 	</div>
-		<?php
+		
 	
-		print_r($prod);
-	
-for($i=0;$i<count($prod);$i++)
-{
-foreach($prod[$i] as $key => $value)
- {
-	 echo $value['prix'];
 
- ?>
 	<div id="edd_checkout_wrap" class="col-md-8 col-md-offset-2">
 
 		<form id="edd_checkout_cart_form" method="post" action="ctrl.php?action=clientinfo">
@@ -83,6 +75,9 @@ foreach($prod[$i] as $key => $value)
 				<table id="edd_checkout_cart" class="ajaxed">
 				<thead>
 				<tr class="edd_cart_header_row">
+					<th class="edd_cart_item_image">
+						 Item Image
+					</th>
 					<th class="edd_cart_item_name">
 						 Item Name
 					</th>
@@ -95,23 +90,40 @@ foreach($prod[$i] as $key => $value)
 				</tr>
 				</thead>
 				<tbody>
+				<?php
+				for($i=0;$i<count($prod);$i++)
+				{
+				foreach($prod[$i] as $key => $value)
+				 {
+					 
+				
+				 ?>
+
+
 				<tr class="edd_cart_item" id="edd_cart_item_0_25" data-download-id="25">
 					<td class="edd_cart_item_name">
 						<div class="edd_cart_item_image">
-							<img width="30" height="30" src="<?php echo '../admin/photos/'.$value["image1"].'.jpeg'; ?>"   alt="">
+							<img width="60" height="60" src="<?php echo '../admin/photos/'.$value["image1"].'.jpeg'; ?>"   alt="">
 						</div>
+						</td>
+						<td>
 						<span class="edd_checkout_cart_item_title"><?php echo $value["nom_produit"];?></span>
 					</td>
 					<td class="edd_cart_item_price">
 						 <?php echo $value["prix"];?>$
 					</td>
-					<td>
-					<input type="text" class="product-quantity" name="quantity" value="1" size="2" /><input type="submit" value="Add to Cart" class="btnAddAction" />
-				</td>
+					
+					
 					<td class="edd_cart_actions">
 						<a class="edd_cart_remove_item_btn" href="#">Remove</a>
 					</td>
 				</tr>
+
+				<?php
+ }
+}
+ ?>
+
 				</tbody>
 				<tfoot>
 				<tr class="edd_cart_footer_row">
@@ -133,6 +145,7 @@ foreach($prod[$i] as $key => $value)
 			</div>
 
 		</form>
+		
 
 		<div id="edd_checkout_form_wrap" class="edd_clearfix">
 			<form id="edd_purchase_form" class="edd_form" action="ctrl.php?action=clientinfo" method="POST">
@@ -174,10 +187,6 @@ foreach($prod[$i] as $key => $value)
 		</div>
 	</div>
 
-	<?php
- }
-}
- ?>
 </div>
 </section>
 

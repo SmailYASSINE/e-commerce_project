@@ -111,7 +111,11 @@ else
 					<h1><?php echo "$pro[1]"?></h1>
 					</a>
 					<span class="price">
-					<span class="edd_price"><?php echo "$pro[3]"."$"?></span>
+					<span class="edd_price"><?php echo "$pro[3]"."$"?></span><br> <br>
+					
+					<td>
+					<input type="number" class="product-quantity" name="quantity" value="1" size="2" /><input type="submit" value="Add to Cart" class="btnAddAction" />
+				</td
 					</span>
 				</div>
 			</div>
