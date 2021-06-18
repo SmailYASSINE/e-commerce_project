@@ -28,10 +28,5 @@ if($_FILES["image1"]["error"]==0 && $_FILES["image2"]["error"]==0 && $_FILES["im
 }
 echo $queryy;
 mysqli_query($connect,$queryy);
-<<<<<<< HEAD
-header('location:Vallproduct.php');
-=======
 //	header('location:Vallproduct.php');
----
->>>>>>> a331a7002bb048420627da6821fd5c217e5af32e
 ?>

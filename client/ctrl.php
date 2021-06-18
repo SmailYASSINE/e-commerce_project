@@ -60,28 +60,6 @@ class ctrl
 //session pour recupirer les ids des produits acheter
 	public function addtocartAction()
 	{
-<<<<<<< HEAD
-		session_start();          //php part
-		$_SESSION['products']=array();
-		$id=$_POST['id_produit']; 
-		$nom=$_POST['nom_produit'];
-		$prix=$_POST['prix']   
-		array_push($_SESSION['products'],$id,$nom,$prix); 
-	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-=======
 		session_start();
         
         
@@ -111,7 +89,6 @@ class ctrl
 
             }
         
->>>>>>> a331a7002bb048420627da6821fd5c217e5af32e
 
 
 	} 
@@ -185,7 +162,7 @@ class ctrl
 			case 'addtocart' : $this->addtocartAction();break;
 
 
-			case 'allcards' : $this->checkoutAction();
+			case 'allcards' : $this->checkoutAction() ;break;
 			case 'one' : $this->oneMaterialAction();break;
 
 
