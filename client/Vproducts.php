@@ -29,7 +29,7 @@
 				<li class="propClone"><a href="ctrl.php">Home</a></li>
 				<li class="propClone"><a href="Vproduct.php">Shop</a></li>
 				<li class="propClone"><?php echo '<a href=ctrl.php?action=allpro >Our Products</a>';?></li>
-				<li class="propClone"><a href="checkout.html">Checkout</a></li>
+				<li class="propClone"><?php echo '<a href=ctrl.php?action=allcards >Checkout</a>';?></li>
 				<li class="propClone"><a href="contact.html">Contact</a></li>
 			</ul>
 		</div>
@@ -97,6 +97,7 @@ else
 
 							<!--detail -->
 							<?php echo "<a href=ctrl.php?action=detail&num=$pro[0] class='learn-more detailslearn'><i class='fa fa-link'></i> Details</a>";?>
+							
 						</p>
 						<!--add to cart-->
 						<p>
@@ -118,6 +119,8 @@ else
 <?php
 
 }
+
+print_r($_SESSION["cart"]);
 ?>
 
 

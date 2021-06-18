@@ -41,19 +41,19 @@ class model
 		$query->execute($A);
 		return ($query->fetchAll());
 	}
-	public function addclient($client,$commande)
+	public function addclient($client)
 	{
 		$query1=$this->db->prepare("INSERT INTO client (id_client,`num_tel`,`nom_client`,`prenom_client`,`addresse`) values(?,?,?,?,?)");
 		$query1->execute($client);
-		$query2=$this->db->prepare("INSERT INTO commande (id_commande,id_client,id_produit ) VALUES (?,?,?);");
-		$query2->execute($commande);
+		//$query2=$this->db->prepare("INSERT INTO commande (id_commande,id_client,id_produit ) VALUES (?,?,?);");
+	//	$query2->execute($commande);
 
 	}
 
-	public function checkoutProductsession($A)
+	public function checkoutProductsession($m)
 	{
 		$query=$this->db->prepare('SELECT `nom_produit`,`prix`,`image1`,`id_produit` FROM produit WHERE  `id_produit`=?');
-		$query->execute($A);
+		$query->execute(array($m));
 		return ($query->fetchAll());
 	}
 	

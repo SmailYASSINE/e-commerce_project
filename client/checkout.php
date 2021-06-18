@@ -65,8 +65,15 @@
 		</div>
 	</div>
 		<?php
- foreach($_SESSION["cart_item"] as $product)
+	
+		print_r($prod);
+	
+for($i=0;$i<count($prod);$i++)
+{
+foreach($prod[$i] as $key => $value)
  {
+	 echo $value['prix'];
+
  ?>
 	<div id="edd_checkout_wrap" class="col-md-8 col-md-offset-2">
 
@@ -91,12 +98,12 @@
 				<tr class="edd_cart_item" id="edd_cart_item_0_25" data-download-id="25">
 					<td class="edd_cart_item_name">
 						<div class="edd_cart_item_image">
-							<img width="30" height="30" src="<?php echo '../admin/photos/'.$product["prix"].'.jpeg'; ?>"   alt="">
+							<img width="30" height="30" src="<?php echo '../admin/photos/'.$value["image1"].'.jpeg'; ?>"   alt="">
 						</div>
-						<span class="edd_checkout_cart_item_title"><?php echo '$product["prix"]';?></span>
+						<span class="edd_checkout_cart_item_title"><?php echo $value["nom_produit"];?></span>
 					</td>
 					<td class="edd_cart_item_price">
-						 <?php echo '$product["item"]';?>$
+						 <?php echo $value["prix"];?>$
 					</td>
 					<td>
 					<input type="text" class="product-quantity" name="quantity" value="1" size="2" /><input type="submit" value="Add to Cart" class="btnAddAction" />
@@ -166,10 +173,11 @@
 			</form>
 		</div>
 	</div>
-<?php
+
+	<?php
  }
+}
  ?>
-,$
 </div>
 </section>
 

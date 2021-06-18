@@ -22,7 +22,7 @@ class ctrl
 	public function allProductsAction()
 	{
 		$products=$this->model->allProducts();
-
+		session_start();
 		require 'Vproducts.php';
 	} 
 
@@ -44,19 +44,23 @@ class ctrl
 
 		require 'checkout.php';
 	}
+
+	//add to cart 
+
 	
 
 	public function clientinfoAction()
 	{
 		$client=array(null,$_POST['tel'],$_POST['first_name'],$_POST['last_name'],$_POST['address']);
-		$commande=array(null,'".mysql_insert_id()."',$_POST['idpro']);
-		$a=$this->model->addclient($client,$commande);
+		//$commande=array(null,'".mysql_insert_id()."',$_POST['idpro']);
+		$a=$this->model->addclient($client);
 		header('location:ctrl.php?action=home');
 	} 
 
 //session pour recupirer les ids des produits acheter
 	public function addtocartAction()
 	{
+<<<<<<< HEAD
 		session_start();          //php part
 		$_SESSION['products']=array();
 		$id=$_POST['id_produit']; 
@@ -77,41 +81,55 @@ class ctrl
 
 
 
+=======
+		session_start();
+        
+        
+        if (isset($_SESSION["cart"])){
+            $item_array_id=array_column($_SESSION["cart"], "product_id");
+            if(!in_array($_GET["num"], $item_array_id)){
+                $count=count($_SESSION["cart"]);
+                $item_array=array(
+                    'product_id'=> $_GET["num"],
+                );
+            $_SESSION["cart"][$count]=$item_array;
+			header('location:ctrl.php?action=allpro');
+            }
+            else{
+                echo '<script> alert("Product is already added")</script>';
+            }
+        }
+        else{
+			$_SESSION["cart"]=array();
+            $item_array=array(
+                'product_id'=> $_GET["num"],
+            );
+            $_SESSION["cart"][0]=$item_array;
+			header('location:ctrl.php?action=allpro');
+        
 
 
+            }
+        
+>>>>>>> a331a7002bb048420627da6821fd5c217e5af32e
 
 
-
-
-
-
-
-
-/*
-
-		//$_SESSION['id']=$_GET['num'];
-		if(empty($_SESSION['id'])){
-		$_SESSION['id']=array();
-		}
-		array_push($_SESSION['id'], $_GET['num']);
-		$c=$_SESSION['id'];
-		$length = count($_SESSION['id']);
-		$b=array();
-		for($i=0;$i<$length;$i++)
-		{
-			$b[i]=array($this->model->checkoutProductsession($_SESSION['id'][i]));
-
-		}
-		*/
-		require 'checkout.php';
 	} 
+    public function checkoutAction()
+    {
+        session_start();
+		$prod=array();
 
 
+        foreach($_SESSION["cart"] as $key => $value){
+            $n=$value['product_id'];
 
 
-
-
-
+            array_push($prod, $this->model->checkoutProductsession($n));
+            
+        }
+		require 'checkout.php';
+    }
 
 
 
@@ -151,6 +169,7 @@ class ctrl
 		$this->model->updateMaterial($material);
 		header('location:ctrl.php?action=allmat');
 	}
+
 	
 	public function action()
 	{
@@ -166,8 +185,9 @@ class ctrl
 			case 'addtocart' : $this->addtocartAction();break;
 
 
-			case 'update' : $this->updateMaterialAction();
+			case 'allcards' : $this->checkoutAction();
 			case 'one' : $this->oneMaterialAction();break;
+
 
 			/*
 			complement du TP
