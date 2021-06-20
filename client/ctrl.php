@@ -51,10 +51,27 @@ class ctrl
 
 	public function clientinfoAction()
 	{
-		$client=array(null,$_POST['tel'],$_POST['first_name'],$_POST['last_name'],$_POST['address']);
-		//$commande=array(null,'".mysql_insert_id()."',$_POST['idpro']);
-		$a=$this->model->addclient($client);
+		
+		$id_cl=uniqid();
+		$id_comm=uniqid();
+
+		$client=array($id_cl,$_POST['tel'],$_POST['first_name'],$_POST['last_name'],$_POST['address']);
+		$commande=array($id_comm, $id_cl);
+
+		$this->model->addclient($client);
+		$this->model->addcommande($commande);
+
+		session_start();
+		foreach($_SESSION["cart"] as $key => $value){
+			$pro=array($value['product_id'],$value['quantity'],$id_comm);
+
+            $this->model->ProduitAcheter($pro);
+
+            
+        }
 		header('location:ctrl.php?action=home');
+		
+
 	} 
 
 //session pour recupirer les ids des produits acheter
@@ -62,7 +79,7 @@ class ctrl
 	{
 		session_start();
         
-        
+      
         if (isset($_SESSION["cart"])){
             $item_array_id=array_column($_SESSION["cart"], "product_id");
             if(!in_array($_GET["num"], $item_array_id)){
@@ -88,8 +105,8 @@ class ctrl
 			header('location:ctrl.php?action=allpro');
         
 
-
             }
+
         
 
 
@@ -115,9 +132,20 @@ class ctrl
 
 
 
-
-
-
+public function deletecartAction()
+{
+	session_start();
+	if (isset($_GET['action'])){
+		if($_GET['action']=="delete"){
+			foreach($_SESSION["cart"] as $keys=>$value){
+				if($value["product_id"]==$_GET['num']){
+					unset($_SESSION["cart"][$keys]);
+					echo '<script>alert("Product has been Removed...!")</script>';
+				}
+			}
+		}
+	}
+}
 	
 	
 	public function action()
@@ -133,8 +161,8 @@ class ctrl
 			case 'clientinfo' : $this->clientinfoAction();break;
 			case 'addtocart' : $this->addtocartAction();break;
 
-
 			case 'allcards' : $this->checkoutAction();
+			case 'delete'   : $this->deletecartAction();break;
 			case 'one' : $this->oneMaterialAction();break;
 
 

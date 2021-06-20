@@ -95,7 +95,7 @@
 				</thead>
 				<tbody>
 				<?php
-				print_r($prod);
+				//print_r($prod);
 				for($i=0;$i<count($prod);$i++)
 				{
 				foreach($prod[$i] as $key=>$value)
@@ -122,7 +122,7 @@
 					</td>					
 					
 					<td class="edd_cart_actions">
-						<a class="edd_cart_remove_item_btn" href="#">Remove</a>
+						<a class="edd_cart_remove_item_btn" href='ctrl.php?action=delete&num=<?php echo $value["id_produit"]?>' onclick="return confirm('Are you sure you want to delete this item?');">Remove</a>
 					</td>
 				</tr>
 
@@ -155,7 +155,7 @@
 		
 
 		<div id="edd_checkout_form_wrap" class="edd_clearfix">
-			<form id="edd_purchase_form" class="edd_form" action="ctrl.php?action=clientinfo" method="POST">
+			<form id="edd_purchase_form" class="edd_form" action="ctrl.php?action=clientinfo" method="post">
 				<fieldset id="edd_checkout_user_info">
 					<legend>Personal Info</legend>
 					<p id="edd-email-wrap">
