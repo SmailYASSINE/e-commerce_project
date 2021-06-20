@@ -43,11 +43,18 @@ class model
 	}
 	public function addclient($client)
 	{
-		$query1=$this->db->prepare("INSERT INTO client (id_client,`num_tel`,`nom_client`,`prenom_client`,`addresse`) values(?,?,?,?,?)");
+	
+		$query1=$this->db->prepare("INSERT INTO client (`id_client`,`num_tel`,`nom_client`,`prenom_client`,`addresse`) values(?,?,?,?,?)");
 		$query1->execute($client);
-		//$query2=$this->db->prepare("INSERT INTO commande (id_commande,id_client,id_produit ) VALUES (?,?,?);");
-	//	$query2->execute($commande);
+		
 
+	}
+
+
+	public function addcommande($commande)
+	{
+		$query2=$this->db->prepare("INSERT INTO commande (`id_commande`,commande.`id_client` ) VALUES (?,?)");
+		$query2->execute($commande);
 	}
 
 	public function checkoutProductsession($m)
@@ -57,15 +64,13 @@ class model
 		return ($query->fetchAll());
 	}
 
-
-
-	public function allProdCat($m)
+	public function ProduitAcheter($cmd)
 	{
-
-		$query=$this->db->prepare('SELECT `nom_produit`,produit.`description`,`prix`,`image1` FROM produit WHERE `id_categorie`=?');
-		$query->execute($m);
-		return $query->fetchAll();
+		$query2=$this->db->prepare("INSERT INTO produitacheter (`id_produit`,`quantite`,`id_commande`) VALUES (?,?,?)");
+		$query2->execute($cmd);
 	}
+
+
 	
 }
 

@@ -119,7 +119,7 @@ else
 					<form method="post" action="ctrl.php?action=addtocart&num=<?php echo $pro[0]?>">
 					<td>
 					
-					<input type="text" class="product-quantity" name="quantity" value="" size="2" />
+					<input type="text" class="product-quantity" name="quantity" value="1" size="2" />
 					<input type="submit" name="add to card" value="Add To Card">
 				</td>
 				</form>
