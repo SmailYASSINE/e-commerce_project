@@ -114,7 +114,13 @@ class ctrl
     }
 
 
-
+    public function ProdCatAction()
+	{
+		$nume=$_GET['idcat'];
+		$products=$this->model->allProdCat($nume);
+		//session_start();
+		require 'Vproductcat.php';
+	} 
 
 
 
@@ -135,7 +141,7 @@ class ctrl
 
 
 			case 'allcards' : $this->checkoutAction() ;break;
-			case 'one' : $this->oneMaterialAction();break;
+			case 'ProdCat' : $this->ProdCatAction();break;
 
 
 			/*
