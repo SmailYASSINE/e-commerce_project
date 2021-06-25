@@ -121,7 +121,7 @@ else
 					<td>
 					
 					<input type="text" class="product-quantity" name="quantity" value="1" size="2" />
-					<input type="submit" name="add to card" value="Add To Card" >
+					<input type="submit" name="add to card" value="Add To Card">
 				</td>
 				</form>
 					</span>
@@ -137,11 +137,6 @@ else
 ?>
 
 
-
-?>
-
-
--->
 <!-- Load JS here for greater good =============================-->
 <script src="js/jquery-.js"></script>
 <script src="js/bootstrap.min.js"></script>

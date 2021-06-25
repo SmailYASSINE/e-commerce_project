@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="">
 
-<link href="css/style.css" rel="stylesheet">
+<link href="css/style.css?nocache={timestamp}" rel="stylesheet">
 
 <link href="css/bootstrap.min.css" rel="stylesheet">
 
@@ -55,9 +55,9 @@
 
 	<div class="container">
 		<div class="row">
-			<div class="col-md-12 text-center">
+			<div class="col-md-12 text-left">
 				<div class="text-homeimage">
-					<div class="maintext-image" data-scrollreveal="enter top over 1.5s after 0.1s" >
+					<div class="maintext-image" data-scrollreveal="enter top over 1.9s after 0.4s" >
 						 Welcome to Our ecommerce Store
 					</div>
 					<div class="subtext-image" data-scrollreveal="enter bottom over 1.7s after 0.3s">
@@ -178,7 +178,7 @@
 		
 			<!-- /.productbox -->
 <?php
-foreach($prods as $pro)
+foreach($prods as $prod)
 {
 ?>
 			<div class="col-md-4">
@@ -212,51 +212,12 @@ foreach($prods as $pro)
 								<td>
 
 								<input type="text" class="product-quantity " name="quantity" value="1" size="3" />
-								<input type="submit" name="add to card" value="Add To Card" onclick="return confirm('This Product is already added to the Panel')";>
+								<input type="submit" name="add to card" value="Add To Card">
 								</td>
 								</form>
 						</span>
-			<div class="productbox">
-				<div class="fadeshop">
-					<div class="captionshop text-center" style="display: none;">
-						<h3><?php echo "$pro[1]"?></h3>
-						<p>
-							 <?php echo "$pro[2]";?>
-						</p>
-						<p>
-							<!--purchase-->
-							<?php echo "<a href=ctrl.php?action=purchase&num=$pro[0] class='learn-more detailslearn'><i class='fa fa-shopping-cart'></i> purchasee</a>";?>
-
-
-							<!--detail -->
-							<?php echo "<a href=ctrl.php?action=detail&num=$pro[0] class='learn-more detailslearn'><i class='fa fa-link'></i> Details</a>";?>
-							
-						</p>
-						<!--add to cart-->
-						<p>
-							<?php echo "<a href=ctrl.php?action=addtocart&num=$pro[0] class='learn-more detailslearn'><i class='fa fa-link'></i> add to cart</a>";?>
-						</p>
-					</div>
-					<span class="maxproduct"><img src="<?php echo '../admin/photos/'.$pro[5].'.jpeg'; ?>"></span>
-				</div>
-				<div class="product-details">
-					<a href="#">
-					<h1><?php echo "$pro[1]"?></h1>
-					</a>
-					<span class="price">
-					<span class="edd_price"><?php echo "$pro[3]"."$"?></span><br> <br>
-
+						
 					
-					
-					<?php /*echo "<a href=ctrl.php?action=addtocart&num=$pro[0] class='learn-more detailslearn'><i class='fa fa-shopping-cart btnAddAction'></i> Add to cart</a>";*/?>
-					<form method="post" action="ctrl.php?action=addtocart&num=<?php echo $pro[0]?>">
-					<td>
-					
-					<input type="text" class="product-quantity" name="quantity" value="" size="2" />
-					<input type="submit" name="add to card" value="Add To Card">
-				</td>
-				</form>
-					</span>
 				</div>
 			</div>
 		</div>

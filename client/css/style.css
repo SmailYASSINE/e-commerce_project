@@ -8,7 +8,9 @@ body {
 	font-size:16px;
 	color:#777;
 	line-height:1.7;
+	/*background: none !important;*/
 }
+
 h1,h2,h3,h4,h5,h6 {
 	font-family:Roboto;
 	font-weight:700;
@@ -37,7 +39,7 @@ a:hover {
 	font-size:30px;
 }
 .navbar-toggle:before {
-	background-image:url(../images/menu.png);
+	background-image:url(../images/homee.jpg);
 	background-repeat:no-repeat;
 }
 header .navbar-white a {
@@ -59,12 +61,13 @@ header .navbar-white {
 	box-shadow:0px 3px 2px 0px rgba(50,50,50,0.1);
 }
 .item.header {
-	background-image:url(../images/homee.jpg);
+	background-image:url('../images/homee.jpg');
 	background-repeat:no-repeat;
+	/*background: none !important;*/
 	background-position:0% top;
 	background-size:cover;
 	background-attachment:scroll;
-	background:rgba(23, 60, 255, 0.33);
+	/*background:rgba(23, 60, 255, 0.33);*/
 }
 
 .navbar-nav,.navbar>.container .navbar-brand {
@@ -79,8 +82,8 @@ header .navbar-white {
 	font-size:75px;
 	line-height:90px;
 	text-transform:uppercase;
-	padding-top:190px;
-	padding-bottom:190px;
+	padding-top:170px;
+	padding-bottom:150px;
 	font-weight:700;
 	font-family:Dosis;
 }

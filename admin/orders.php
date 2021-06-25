@@ -20,21 +20,7 @@ $(document).ready(function(){
 </script>
 
 
-<?php 
-require 'connexion.php';
-/*if(isset($_POST['critere'])) //recherche
-	{
-	$critere=$_POST['critere'];
-	$query="select * from materials where intitule like '%$critere%'";
-	}*/
-    
-$query="select nom_client,prenom_client,num_tel,addresse,date_commande,total_price,id_commande from client,commande where commande.id_client=client.id_client order by date_commande"; //liste 
-$result=mysqli_query($connect,$query);
-$nb=mysqli_num_rows($result);
-if($nb==0) echo "<center>Aucun order now</center>";
-else
-{
-?>
+
 
 
 </head>
@@ -60,26 +46,36 @@ else
                         <th>client Name <i class="fa fa-sort"></i></th>
                         <th>address</th>
                         <th>order Date <i class="fa fa-sort"></i></th>
-                        <th>total Price</th>
+                       
                         <th>Phone number <i class="fa fa-sort"></i></th>
                         <th>Actions</th>
                     </tr>
                 </thead>
+<?php 
+require 'connexion.php';
+
+$query="select nom_client,prenom_client,num_tel,addresse,date_commande,total_price,id_commande from client,commande where commande.id_client=client.id_client order by date_commande"; //liste 
+$result=mysqli_query($connect,$query);
+$nb=mysqli_num_rows($result);
+
+if($nb==0) {echo "<center>Aucun order now</center>";}
+else
+{
 
 
-                <?php
+        
                 $conter=0;
                 while($order=mysqli_fetch_row($result))
                 {
                 echo "<tbody>";
                     echo "<tr>";
                     $conter+=1;
-                        echo "<td>$conter</td><td>$order[0] $order[1]</td><td>$order[3]</td><td>$order[4]</td><td>$order[5]</td>";
+                        echo "<td>$conter</td><td>$order[0] $order[1]</td><td>$order[3]</td><td>$order[4]</td>";
                         
                         echo "<td> $order[2]</td> ";
 
                         echo "<td>";
-                        echo "<a href=detailorder.php?num=$order[6] class='view' title='View' data-toggle='tooltip'><i class='material-icons'>&#xE417;</i></a>";
+                        echo "<a href=detailorder.php?num=$order[5] class='view' title='View' data-toggle='tooltip'><i class='material-icons'>&#xE417;</i></a>";
                        // echo "<a href=editproduct.php?num=$prod[0] class='edit' title='Edit' data-toggle='tooltip'><i class='material-icons'>&#xE254;</i></a>";
                     //    echo "<a href=delete_product.php?num=$prod[0] class='delete' title='Delete' data-toggle='tooltip'><i class='material-icons'>&#xE872;</i></a>";
                         echo "</td>";

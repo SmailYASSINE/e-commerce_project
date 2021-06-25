@@ -100,23 +100,27 @@ class ctrl
             $_SESSION["cart"][$count]=$item_array;
 			header('location:ctrl.php?action=allpro');
             }
-            else{
-				
+			else{
+           
+				/*
 				$protocol = strpos(strtolower($_SERVER['SERVER_PROTOCOL']),'https') === FALSE ? 'http' : 'https';
 				$host     = $_SERVER['HTTP_HOST'];
 				$script   = $_SERVER['SCRIPT_NAME'];
 				$params   = $_SERVER['QUERY_STRING'];
 				 
 				$currentUrl = '?' . $params;
-				$a=substr($currentUrl,8,9);  
-				if( $a = "allpro"){
-					echo '<script> alert("Product is already added")</script>';
-					header('location:ctrl.php?action=allpro');}
-				else if ($a = ""){
-					echo '<script> alert("Product is already added")</script>';
-					header('location:ctrl.php?action=home');}
+				$a=substr($currentUrl,8,9);
+				*/
+				echo '<script>
+				window.location="ctrl.php?action=allpro";
+				alert("This Product is Already Added to The Panel");
+				</script>';
+
+				//header('location:ctrl.php?action=allpro');
+					//echo '<script> alert("Product is already added")</script>';
+				}	
+			
 				
-            }
         }
         else{
 			$_SESSION["cart"]=array();
@@ -189,11 +193,8 @@ public function deletecartAction()
 			case 'clientinfo' : $this->clientinfoAction();break;
 			case 'addtocart' : $this->addtocartAction();break;
 
-<<<<<<< HEAD
 			case 'allcards' : $this->checkoutAction();break;
-=======
 			case 'allcards' : $this->checkoutAction() ;break;
->>>>>>> a47733757737a5986bae8fe7fea989d9bddf3196
 			case 'delete'   : $this->deletecartAction();break;
 			
 			case 'ProdCat': $this->catproductAction();break;

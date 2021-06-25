@@ -16,7 +16,7 @@ php
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
   <!-- MDB -->
   <link rel="stylesheet" href="css/mdb.min.css" />
-   <link rel="stylesheet" href="logincss.css">
+   <link rel="stylesheet" href="logincss.css?nocache={timestamp}">
   <!-- Custom styles -->
   <link rel="stylesheet" href="css/admin.css" />
   <link rel="stylesheet" href="logincss.css">

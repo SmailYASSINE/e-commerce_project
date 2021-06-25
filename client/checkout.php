@@ -28,7 +28,6 @@
 			<ul class="nav navbar-nav navbar-right">
 				<li class="propClone"><a href="ctrl.php">Home</a></li>
 				<li class="propClone"><a href="ctrl.php#categories">Categories</a></li>
-				<li class="propClone"><a href="shop.html">categories</a></li>
 				<li class="propClone"><?php echo '<a href=ctrl.php?action=allpro >Our Products</a>';?></li>
 				<li class="propClone"><?php echo '<a href=ctrl.php?action=allcards >Checkout</a>';?></li>
 				<li class="propClone"><a href="contact.html">Contact</a></li>
@@ -158,25 +157,26 @@
 			<form id="edd_purchase_form" class="edd_form" action="ctrl.php?action=clientinfo" method="post">
 				<fieldset id="edd_checkout_user_info">
 					<legend>Personal Info</legend>
-					<p id="edd-email-wrap">
-						<label class="edd-label" for="edd-email">
-						Email Address <span class="edd-required-indicator">*</span></label>
-						<input class="edd-input required" type="tel" name="tel" placeholder="Email address" id="edd-email" value="">
-					</p>
+
 					<p id="edd-first-name-wrap">
 						<label class="edd-label" for="edd-first">
-						First Name <span class="edd-required-indicator">*</span>
+						First Name :<span class="edd-required-indicator">*</span>
 						</label>
 						<input class="edd-input required" type="text" name="first_name" placeholder="First name" id="edd-first" value="" required="">
 					</p>
 					<p id="edd-last-name-wrap">
 						<label class="edd-label" for="edd-last">
-						Last Name </label>
+						Last Name :<span class="edd-required-indicator">*</span></label>
 						<input class="edd-input" type="text" name="last_name" id="last_name" placeholder="Last name" value="">
+					</p>
+					<p id="edd-email-wrap">
+						<label class="edd-label" for="edd-email">
+						Phone Number : <span class="edd-required-indicator">*</span></label>
+						<input class="edd-input required" type="tel" name="tel" placeholder="Phone Number" id="edd-email" value="">
 					</p>
 					<p id="edd-last-name-wrap">
 						<label class="edd-label" for="edd-last">
-						Address </label>
+						Address :<span class="edd-required-indicator">*</span></label>
 						<textarea class="edd-input" type="text" name="address" id="" placeholder="Last name" value=""></textarea>
 					</p>
 				</fieldset>
