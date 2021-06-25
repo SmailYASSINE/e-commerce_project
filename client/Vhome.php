@@ -109,7 +109,7 @@
 			  		else echo '<div class="carousel-item">';
 ?>
 				
-		      <a href=ctrl.php?action=ProdCat&idcat=<?php echo $cat[3]?>><img class="d-block style="width: 100px; height: 200px;" src="<?php echo '../admin/photos/'.$cat[2].'.jpeg'; ?>"alt="First slide"></a>
+		      <a href=ctrl.php?action=ProdCat&idcat=<?php echo $cat[3]?>><img class="d-block style="width: 100px; height: 200px;" src="<?php echo '../admin/photos/'.$cat[2].'.jpeg'; ?>"alt="First slide"  width="500px" height="500px ></a>
 		      	  <div class="carousel-caption d-none d-md-block ccc">
     				<h1><?php echo "$cat[0]";?></h1>
     				<p><?php echo "$cat[1]";?></p>
@@ -288,13 +288,16 @@ foreach($prods as $prod)
 
 <!-- TESTIMONIAL =============================-->
 <div class="item content">
+			<h1 class="uppercase d-flex justify-content-center" >Meet Our team</h1>
 	<div class="container">
+
 		<div class="col-md-5 col-md-offset-0">
+
 			<div class="slide-text">
 			<h2 class="uppercase">Smail YASSINE</h2>
 				<div>
 					
-					<img src="../client/images/Smail.jpg" alt="Awesome Support">
+					<img src="../client/images/Smail.jpg"  width="100" height="100"  alt="Awesome Support">
 					<p>
 					Smail YASSINE is a changemaker, it is one of his priorities to be a social entrepreneur in his university and his  society. 
 					</p>
@@ -305,10 +308,10 @@ foreach($prods as $prod)
 		<div class="col-md-5 col-md-offset-1">
 			<div class="slide-text">
 				<div>
-					<h2><span class="uppercase">Awesome Support</span></h2>
-					<img src="http://wowthemes.net/demo/salique/salique-boxed/images/temp/avatar2.png" alt="Awesome Support">
+					<h2><span class="uppercase">Mohamed CHAFIQ</span></h2>
+					<img src="../client/images/med.jpg" width="100" height="100" alt="Awesome Support">
 					<p>
-						 The support... I can only say it's awesome. You make a product and you help people out any way you can even if it means that you have to log in on their dashboard to sort out any problems that customer might have. Simply Outstanding!
+						 Mohamed CHAFIQ is data science student at Mohammed VI university. He is passionate about digital marketing. He is owen of an e-commerce brand. He help local business to developpe digital marketing strategies which can lead them to make more profits.
 					</p>
 					<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
 				</div>

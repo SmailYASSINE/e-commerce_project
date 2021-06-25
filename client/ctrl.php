@@ -49,10 +49,10 @@ class ctrl
 	public function catproductAction()
 	{
 		
-		$nume=array($_GET['num']);
+		$nume=array($_GET['idcat']);
 		$products=$this->model->CatProduct($nume);
 
-		require 'vproductcat.php';
+		require 'Vproductcat.php';
 	}
 
 	

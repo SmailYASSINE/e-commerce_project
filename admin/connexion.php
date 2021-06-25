@@ -8,6 +8,6 @@ $connect= mysqli_connect(HOST, USER, PASS, BASE);
 
 if($connect==false){echo "prb de cnx"; exit();}
 
-###################################
+
 
 ?>

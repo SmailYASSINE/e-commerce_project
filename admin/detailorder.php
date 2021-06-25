@@ -44,7 +44,7 @@ else
         <div class="table-wrapper">
             <div class="table-title">
                 <div class="row">
-                    <div class="col-sm-8"><h2>Order<b> details</b></h2></div>
+                    <div class="col-sm-12 text-center"><h1>Order<b> details</b></h1></div>
                     
                 </div>
             </div>
@@ -53,11 +53,14 @@ else
                 $total=0;
                 $client=mysqli_fetch_row($result2);
                ?>
-                <h5>client information</h4>
-                <h6>first name: <?php echo $client[0] ?></h5>
-                <h6>last name: <?php echo $client[1] ?></h5>
-                <h6>phone number: <?php echo $client[2] ?></h5>
-                <h6>address: <?php echo $client[3] ?></h5>
+                <h5 style="color:black ;">Client Information :</h4><br>
+                <h6>First Name : <?php echo $client[0] ?></h5>
+                <h6>Last Name : <?php echo $client[1] ?></h5>
+                <h6>Phone Number : <?php echo $client[2] ?></h5>
+                <h6>Address : <?php echo $client[3] ?></h5>
+                <br>
+                <br>
+                <br>
                 <thead>
                     <tr>
                         <th>#</th>

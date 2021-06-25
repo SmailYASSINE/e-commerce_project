@@ -22,6 +22,17 @@
 </head>
 <body>
 	<?php
+	session_start();
+if (isset($_SESSION['previous'])) {
+	//print_r($_SESSION["previous"]);
+   if (basename($_SERVER['PHP_SELF']) != $_SESSION['previous']) {
+        session_destroy();
+        // on a comparer le variable sesion previous intialiser dans Vallproduct avec le current $server
+   }
+}
+
+
+	
 if(isset($_GET['verif'])) echo "<center>Welcome admin ! Verify your login and your password</center>";
 ?>
 	<form method="post" action="verif.php">
@@ -30,6 +41,7 @@ if(isset($_GET['verif'])) echo "<center>Welcome admin ! Verify your login and yo
 		<div class="card">
 			<div class="card-header">
 				<h3 align="center">Sign In</h3>
+			
 				
 			</div>
 			<div class="card-body">
