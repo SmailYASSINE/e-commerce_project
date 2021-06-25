@@ -29,8 +29,8 @@
   </head>
 
   <body>
-  <?php require 'connexion.php';
-        require 'verfsession.php';
+  <?php 
+ if(basename($_SERVER['PHP_SELF'])=='formuser.php') {require 'verfsession.php';}
   ?>
 
  

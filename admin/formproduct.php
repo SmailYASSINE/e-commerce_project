@@ -29,8 +29,8 @@
   </head>
 
   <body>
-  <?php require 'connexion.php';
-       require 'verfsession.php';
+ <?php 
+ if(basename($_SERVER['PHP_SELF'])=='formproduct.php') {require 'verfsession.php';}
   ?>
  
     <div class="container tm-mt-big tm-mb-big">

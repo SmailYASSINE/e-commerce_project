@@ -26,8 +26,8 @@
 	https://templatemo.com/tm-524-product-admin
 	-->
   </head>
-<?php require 'connexion.php';
-       require 'verfsession.php';
+<?php 
+ if(basename($_SERVER['PHP_SELF'])=='formcat1.php') {require 'verfsession.php';}
   ?>
   <body>
   
