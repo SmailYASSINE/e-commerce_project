@@ -27,7 +27,7 @@
 		<div id="navbar-collapse-02" class="collapse navbar-collapse">
 			<ul class="nav navbar-nav navbar-right">
 				<li class="propClone"><a href="ctrl.php">Home</a></li>
-				<li class="propClone"><a href="Vproduct.php">Shop</a></li>
+				<li class="propClone"><a href="ctrl.php#categories	">Categories</a></li>
 				<li class="propClone"><?php echo '<a href=ctrl.php?action=allpro >Our Products</a>';?></li>
 				<li class="propClone"><?php echo '<a href=ctrl.php?action=allcards >Checkout</a>';?></li>
 				<li class="propClone"><a href="contact.html">Contact</a></li>
@@ -91,18 +91,19 @@ else
 							 <?php echo "$pro[2]";?>
 						</p>
 						<p>
-							<!--purchase-->
-							<?php echo "<a href=ctrl.php?action=purchase&num=$pro[0] class='learn-more detailslearn'><i class='fa fa-shopping-cart'></i> purchasee</a>";?>
-
-
+							<!--purchase
+							 echo "<a href=ctrl.php?action=purchase&num=$pro[0] class='learn-more detailslearn'><i class='fa fa-shopping-cart'></i> purchasee</a>";?>
+							-->
+							</p>
 							<!--detail -->
-							<?php echo "<a href=ctrl.php?action=detail&num=$pro[0] class='learn-more detailslearn'><i class='fa fa-link'></i> Details</a>";?>
+							  <?php echo "<a href=ctrl.php?action=detail&num=$pro[0] class='learn-more detailslearn'><i class='fa fa-link'></i> Details</a>";?>
 							
-						</p>
-						<!--add to cart-->
+						
+						<!--add to cart
 						<p>
-							<?php echo "<a href=ctrl.php?action=addtocart&num=$pro[0] class='learn-more detailslearn'><i class='fa fa-link'></i> add to cart</a>";?>
+							 echo "<a href=ctrl.php?action=addtocart&num=$pro[0] class='learn-more detailslearn'><i class='fa fa-link'></i> add to cart</a>";?>
 						</p>
+						-->
 					</div>
 					<span class="maxproduct"><img src="<?php echo '../admin/photos/'.$pro[5].'.jpeg'; ?>"></span>
 				</div>
@@ -120,7 +121,7 @@ else
 					<td>
 					
 					<input type="text" class="product-quantity" name="quantity" value="1" size="2" />
-					<input type="submit" name="add to card" value="Add To Card">
+					<input type="submit" name="add to card" value="Add To Card" >
 				</td>
 				</form>
 					</span>
@@ -130,9 +131,7 @@ else
 <?php
 }
 }
-foreach($_SESSION["cart"] as $key=>$value){
-	print_r($value["quantity"]);
-}
+
 
 ?>
 
@@ -325,7 +324,7 @@ foreach($_SESSION["cart"] as $key=>$value){
 <script src="js/bootstrap.min.js"></script>
 <script src="js/anim.js"></script>
 <script>
-//----HOVER CAPTION---//	  
+//----HOVER CAPTION---//
 jQuery(document).ready(function ($) {
 	$('.fadeshop').hover(
 		function(){

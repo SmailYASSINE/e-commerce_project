@@ -5,11 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="">
 
+<link href="css/style.css" rel="stylesheet">
+
 <link href="css/bootstrap.min.css" rel="stylesheet">
 
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
-
-<link href="css/style.css" rel="stylesheet">
 
 <link href="https://fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Roboto:200,300,400,500,600,700" rel="stylesheet">
@@ -19,6 +19,7 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
 
 </head>
 <body>
@@ -43,9 +44,9 @@
 </ul>
 			<ul class="nav navbar-nav navbar-right d-inline">
 				<li class="propClone"><a href="ctrl.php">Home</a></li>
-				<li class="propClone"><a href="shop.html">Categories</a></li>
+				<li class="propClone"><a href="#categories">Categories</a></li>
 				<li class="propClone"><?php echo '<a href=ctrl.php?action=allpro >Our Products</a>';?></li>
-				<li class="propClone"><a href="checkout.html">Checkout</a></li>
+				<li class="propClone"><?php echo '<a href=ctrl.php?action=allcards >Checkout</a>';?></li>
 				<li class="propClone"><a href="contact.html">Contact</a></li>
 			</ul>
 		</div>
@@ -56,11 +57,11 @@
 		<div class="row">
 			<div class="col-md-12 text-center">
 				<div class="text-homeimage">
-					<div class="maintext-image" data-scrollreveal="enter top over 1.5s after 0.1s">
-						 Increase Digital Sales
+					<div class="maintext-image" data-scrollreveal="enter top over 1.5s after 0.1s" >
+						 Welcome to Our ecommerce Store
 					</div>
 					<div class="subtext-image" data-scrollreveal="enter bottom over 1.7s after 0.3s">
-						 Boost revenue with Scorilo
+						 Your First purchase at our expense
 					</div>
 				</div>
 			</div>
@@ -85,7 +86,7 @@
 <!-- STEPS =============================-->
 <div class="item content">
 	<div class="container toparea w-50">
-	<div class="shadow-lg p-3 mb-5 rounded d-flex justify-content-center"><h1> Our Main Categories :</h1></div>
+	<div id="categories" class="shadow-lg p-3 mb-5 rounded d-flex justify-content-center"><h1> Our Main Categories :</h1></div>
 	
 
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -189,26 +190,31 @@ foreach($prods as $prod)
 								 <?php echo "$prod[2]"?>
 							</p>
 							<p>
-								<!--shop product-->
-								<?php echo "<a href=ctrl.php?action=purchase class='learn-more detailslearn'><i class='fa fa-shopping-cart'></i> purchasee</a>";?>
+								<!--shop product
+								 echo "<a href=ctrl.php?action=purchase class='learn-more detailslearn'><i class='fa fa-shopping-cart'></i> purchasee</a>";?>-->
 								<!-- on a meet le lien pour acceder a oneproduct -->
 								<?php echo "<a href=ctrl.php?action=detail&num=$prod[0] class='learn-more detailslearn'><i class='fa fa-link'></i> Details</a>";?>
-								<?php echo "<a href=ctrl.php?action=detail&num=$prod[0] class='learn-more detailslearn'><i class='fa fa-cart-plus'></i> Add To Card</a>";?>
-
+								
 							</p>
 							<!--add to cart-->
-						<p>
-							<?php echo "<a href=ctrl.php?action=detail&num=$prod[0] class='learn-more detailslearn'><i class='fa fa-link'></i> Details</a>";?>
-						</p>
 						</div>
 						<span class="maxproduct"><img src="<?php echo '../admin/photos/'.$prod[5].'.jpeg'; ?>" alt=""></span>
 					</div>
-					<div class="product-details">
+					<div class="product-details h3">
 						<a href="#">
 						<h5><?php echo "$prod[1]"?></h5>
 						</a>
 						<span class="price">
-						<span class="edd_price"><?php echo "$prod[3]"?>$</span>
+						<span class="edd_price"><?php echo "$prod[3]"?>$</span><br> <br>
+
+					
+								<form method="post" action="ctrl.php?action=addtocart&num=<?php echo $prod[0]?>">
+								<td>
+
+								<input type="text" class="product-quantity " name="quantity" value="1" size="3" />
+								<input type="submit" name="add to card" value="Add To Card" onclick="return confirm('This Product is already added to the Panel')";>
+								</td>
+								</form>
 						</span>
 					</div>
 				</div>
@@ -242,41 +248,34 @@ foreach($prods as $prod)
 <div class="item content">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-4">
+			<div class="col-md-4 h1">
 				<i class="fa fa-microphone infoareaicon"></i>
-				<div class="infoareawrap">
+				<div class="infoareawrap h5">
 					<h1 class="text-center subtitle">General Questions</h1>
 					<p>
-						 Want to buy a theme but not sure if it's got all the features you need? Trouble completing the payment? Or just want to say hi? Send us your message and we will answer as soon as possible!
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo praesentium sed quaerat eius ad quam reiciendis beatae earum ducimus error molestiae veritatis nostrum, nesciunt sunt impedit a magni ea quibusdam.
 					</p>
-					<p class="text-center">
-						<a href="#">- Get in Touch -</a>
-					</p>
+				
 				</div>
 			</div>
 			<!-- /.col-md-4 col -->
-			<div class="col-md-4">
+			<div class="col-md-4 h1">
 				<i class="fa fa-comments infoareaicon"></i>
-				<div class="infoareawrap">
-					<h1 class="text-center subtitle">Theme Support</h1>
+				<div class="infoareawrap h5">
+					<h1 class="text-center subtitle">Our Mission</h1>
 					<p>
-						 Theme support issues prevent the theme from working as advertised in the demo. This is a free and guaranteed service offered through our support forum which is found in each theme.
+						 Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur veniam cupiditate nemo saepe non hic excepturi sint. Ipsam iure, repellendus quas, quia, temporibus ratione maxime nesciunt quam autem eaque mollitia.
 					</p>
-					<p class="text-center">
-						<a href="#">- Select Theme -</a>
-					</p>
+
 				</div>
 			</div>
 			<!-- /.col-md-4 col -->
-			<div class="col-md-4">
+			<div class="col-md-4 h1">
 				<i class="fa fa-bullhorn infoareaicon"></i>
-				<div class="infoareawrap">
-					<h1 class="text-center subtitle">Hire Us</h1>
+				<div class="infoareawrap h5">
+					<h1 class="text-center subtitle">Objectives</h1>
 					<p>
-						 If you wish to change an element to look or function differently than shown in the demo, we will be glad to assist you. This is a paid service due to theme support requests solved with priority.
-					</p>
-					<p class="text-center">
-						<a href="#">- Get in Touch -</a>
+						 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Error dicta veniam quia illum esse, in rerum architecto eius dolor voluptas tempore ad totam? Eaque cumque excepturi quasi saepe laborum explicabo.
 					</p>
 				</div>
 			</div>
@@ -295,7 +294,7 @@ foreach($prods as $prod)
 					
 					<img src="../client/images/Smail.jpg" alt="Awesome Support">
 					<p>
-					Smail YASSINE is a changemaker, it is one of his priorities to be a social entrepreneur in his university and his  society. He is a member of different programs/entities, in which he designed events, strategies, and workshops for local, social, and economic fields.
+					Smail YASSINE is a changemaker, it is one of his priorities to be a social entrepreneur in his university and his  society. 
 					</p>
 					<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
 				</div>
@@ -316,29 +315,19 @@ foreach($prods as $prod)
 	</div>
 </div>
 
-
-<!-- CALL TO ACTION =============================-->
-<section class="content-block" style="background-color:#00bba7;">
-<div class="container text-center">
-	<div class="row">
-		<div class="col-sm-10 col-sm-offset-1">
-			<div class="item" data-scrollreveal="enter top over 0.4s after 0.1s">
-				<h1 class="callactiontitle"> Promote Items Area Give Discount to Buyers <span class="callactionbutton"><i class="fa fa-gift"></i> WOW24TH</span>
-				</h1>
-			</div>
-		</div>
-	</div>
-</div>
-</section>
-
+<br>
+<br>
+<br>
+<br>
 
 <!-- FOOTER =============================-->
 <div class="footer text-center">
 	<div class="container">
 		<div class="row">
 			<p class="footernote">
-				 Connect with Scorilo
+				 Contact Us : 
 			</p>
+			<br>
 			<ul class="social-iconsfooter">
 				<li><a href="#"><i class="fa fa-phone"></i></a></li>
 				<li><a href="#"><i class="fa fa-facebook"></i></a></li>
@@ -347,8 +336,8 @@ foreach($prods as $prod)
 				<li><a href="#"><i class="fa fa-pinterest"></i></a></li>
 			</ul>
 			<p>
-				 &copy; 2017 Your Website Name<br/>
-				Scorilo - Free template by <a href="https://www.wowthemes.net/">WowThemesNet</a>
+				 &copy; 2021 Ecommerce Store<br/>
+				By : Smail YASSINE &copy; Mohamed CHAFIQ 
 			</p>
 		</div>
 	</div>

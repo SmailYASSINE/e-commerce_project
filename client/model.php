@@ -24,7 +24,7 @@ class model
 	}
 	public function oneProduct($A)
 	{
-		$query=$this->db->prepare('SELECT `nom_produit`,produit.`description`,`prix`,`nom_categorie`,`image1` FROM produit,categorie WHERE produit.`id_categorie`=categorie.`id_categorie`AND `id_produit`=?');
+		$query=$this->db->prepare('SELECT `nom_produit`,produit.`description`,`prix`,`nom_categorie`,`image1`,`image2`, `image3`,`id_produit` FROM produit,categorie WHERE produit.`id_categorie`=categorie.`id_categorie`AND `id_produit`=?');
 		$query->execute($A);
 		return ($query->fetchAll());
 	}

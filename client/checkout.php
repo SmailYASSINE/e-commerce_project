@@ -26,10 +26,10 @@
 		</div>
 		<div id="navbar-collapse-02" class="collapse navbar-collapse">
 			<ul class="nav navbar-nav navbar-right">
-				<li class="propClone"><a href="index.html">Home</a></li>
-				<li class="propClone"><a href="shop.html">Shop</a></li>
-				<li class="propClone"><a href="product.html">Product</a></li>
-				<li class="propClone"><a href="checkout.html">Checkout</a></li>
+				<li class="propClone"><a href="ctrl.php">Home</a></li>
+				<li class="propClone"><a href="ctrl.php#categories">Categories</a></li>
+				<li class="propClone"><?php echo '<a href=ctrl.php?action=allpro >Our Products</a>';?></li>
+				<li class="propClone"><?php echo '<a href=ctrl.php?action=allcards >Checkout</a>';?></li>
 				<li class="propClone"><a href="contact.html">Contact</a></li>
 			</ul>
 		</div>
@@ -95,6 +95,7 @@
 				</thead>
 				<tbody>
 				<?php
+				$total=0;
 				//print_r($prod);
 				for($i=0;$i<count($prod);$i++)
 				{
@@ -127,24 +128,22 @@
 				</tr>
 
 				<?php
+				$total=$total+$value["prix"]*$qnt[$i];
  }
+
+
 }
  ?>
 
 				</tbody>
 				<tfoot>
-				<tr class="edd_cart_footer_row">
-					<th colspan="5">
-						<a class="edd-cart-saving-button edd-submit button " id="edd-save-cart-button" href="#">Save Cart</a>
-					</th>
-				</tr>
 				<tr class="edd_cart_footer_row edd_cart_discount_row" style="display:none;">
 					<th colspan="5" class="edd_cart_discount">
 					</th>
 				</tr>
 				<tr class="edd_cart_footer_row">
 					<th colspan="5" class="edd_cart_total">
-						 Total: <span class="edd_cart_amount" data-subtotal="11.99" data-total="11.99">$11.99</span>
+						 Total: <span class="edd_cart_amount" data-subtotal="11.99" data-total="11.99"><?php echo "$total $"; ?></span>
 					</th>
 				</tr>
 				</tfoot>
@@ -183,7 +182,7 @@
 				<fieldset id="edd_purchase_submit">
 					<p id="edd_final_total_wrap">
 						<strong>Purchase Total:</strong>
-						<span class="edd_cart_amount" data-subtotal="11.99" data-total="11.99">$11.99</span>
+						<span class="edd_cart_amount" data-subtotal="11.99" data-total="11.99"><?php echo "$total $"; ?></span>
 					</p>
 					<!--to recupirate ip product-->
 					<input type="hidden" name="idpro" value="<?php echo '$product["prix"]';?>">
@@ -195,9 +194,14 @@
 	</div>
 
 </div>
+<br>
+<br>
+<br>
+<br>
+<!--
 </section>
 
-<!-- CALL TO ACTION =============================-->
+ CALL TO ACTION =============================
 <section class="content-block" style="background-color:#00bba7;">
 <div class="container text-center">
 	<div class="row">
@@ -210,13 +214,13 @@
 	</div>
 </div>
 </section>
-
+-->
 <!-- FOOTER =============================-->
 <div class="footer text-center">
 	<div class="container">
 		<div class="row">
 			<p class="footernote">
-				 Connect with Scorilo
+				 Connect Us
 			</p>
 			<ul class="social-iconsfooter">
 				<li><a href="#"><i class="fa fa-phone"></i></a></li>
@@ -226,8 +230,8 @@
 				<li><a href="#"><i class="fa fa-pinterest"></i></a></li>
 			</ul>
 			<p>
-				 &copy; 2017 Your Website Name<br/>
-				Scorilo - Free template by <a href="https://www.wowthemes.net/">WowThemesNet</a>
+				 &copy; 2021 Ecommerce Store<br/>
+				Smail YASSINE   Mohamed CHAFIQ
 			</p>
 		</div>
 	</div>

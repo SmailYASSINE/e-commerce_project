@@ -29,7 +29,7 @@
 				<li class="propClone"><a href="ctrl.php">Home</a></li>
 				<li class="propClone"><a href="Vproducts.php">Shop</a></li>
 				<li class="propClone"><?php echo '<a href=ctrl.php?action=allpro >Our Products</a>';?></li>
-				<li class="propClone"><a href="checkout.html">Checkout</a></li>
+				<li class="propClone"><?php echo '<a href=ctrl.php?action=allcards >Checkout</a>';?></li>
 				<li class="propClone"><a href="contact.html">Contact</a></li>
 			</ul>
 		</div>
@@ -71,6 +71,7 @@
 	</div>
 	<div class="row">
 		<div class="col-md-8">
+			
 			<div class="productbox">
 				<img src="<?php echo '../admin/photos/'.$product[4].'.jpeg'; ?>" alt="">
 				<div class="clearfix">
@@ -85,12 +86,20 @@
 			</div>
 		</div>
 		<div class="col-md-4">
-			<a href="#" class="btn btn-buynow">shop now</a>
+		<form method="post" action="ctrl.php?action=addtocart&num=<?php echo $product[7]?>">
+					<td>
+					
+					<input type="submit" name="add to card" class="btn btn-buynow learn-more detailslearn" value="Add To Card">
+					<input type="text" class="product-quantity" name="quantity" value="1" size="22" />
+				</td>
+				</form>
+		<!--
+			 echo "<a href=ctrl.php?action=addtocart&num=$product[5] class='btn btn-buynow learn-more detailslearn'><i class='fa fa-link'></i> Add to Cart</a>";?>
+ 		-->	
 			<div class="properties-box">	
 				<ul class="unstyle">
 					<li><b class="propertyname">name: </b><?php echo "$product[1]";?></li>
 					<li><b class="propertyname">price: </b><?php echo "$product[2]";?>$</li>
-					
 					<li><b class="propertyname">category: </b> <?php echo "$product[3]";?></li>
 					<li><b class="propertyname">Number:</b> Up to 20 specifications in this box</li>
 					<li><b class="propertyname">Live Demo:</b><a target="_blank" href="http://www.wowthemes.net/">http://www.wowthemes.net/</a></li>
@@ -103,7 +112,7 @@
 <?php
 }
 ?>
-<!-- CALL TO ACTION =============================-->
+<!-- CALL TO ACTION =============================
 <section class="content-block" style="background-color:#00bba7;">
 <div class="container text-center">
 	<div class="row">
@@ -116,7 +125,7 @@
 	</div>
 </div>
 </section>
-
+-->
 <!-- FOOTER =============================-->
 <div class="footer text-center">
 	<div class="container">

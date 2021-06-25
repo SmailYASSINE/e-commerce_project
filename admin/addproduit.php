@@ -29,5 +29,4 @@ if($_FILES["image1"]["error"]==0 && $_FILES["image2"]["error"]==0 && $_FILES["im
 echo $queryy;
 mysqli_query($connect,$queryy);
 //	header('location:Vallproduct.php');
----
 ?>

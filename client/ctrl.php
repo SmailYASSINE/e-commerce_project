@@ -74,7 +74,7 @@ class ctrl
 
 	} 
 
-//session pour recupirer les ids des produits acheter
+//session pour recupirer les ids des produits acheter	
 	public function addtocartAction()
 	{
 		session_start();
@@ -92,7 +92,21 @@ class ctrl
 			header('location:ctrl.php?action=allpro');
             }
             else{
-                echo '<script> alert("Product is already added")</script>';
+				
+				$protocol = strpos(strtolower($_SERVER['SERVER_PROTOCOL']),'https') === FALSE ? 'http' : 'https';
+				$host     = $_SERVER['HTTP_HOST'];
+				$script   = $_SERVER['SCRIPT_NAME'];
+				$params   = $_SERVER['QUERY_STRING'];
+				 
+				$currentUrl = '?' . $params;
+				$a=substr($currentUrl,8,9);  
+				if( $a = "allpro"){
+					echo '<script> alert("Product is already added")</script>';
+					header('location:ctrl.php?action=allpro');}
+				else if ($a = ""){
+					echo '<script> alert("Product is already added")</script>';
+					header('location:ctrl.php?action=home');}
+				
             }
         }
         else{
@@ -141,10 +155,14 @@ public function deletecartAction()
 				if($value["product_id"]==$_GET['num']){
 					unset($_SESSION["cart"][$keys]);
 					echo '<script>alert("Product has been Removed...!")</script>';
+					header('location:ctrl.php?action=allcards');
+					
 				}
 			}
 		}
+		//header('location:ctrl.php?action=allcards');
 	}
+	
 }
 	
 	
@@ -161,20 +179,11 @@ public function deletecartAction()
 			case 'clientinfo' : $this->clientinfoAction();break;
 			case 'addtocart' : $this->addtocartAction();break;
 
-			case 'allcards' : $this->checkoutAction();
+			case 'allcards' : $this->checkoutAction();break;
 			case 'delete'   : $this->deletecartAction();break;
 			case 'one' : $this->oneMaterialAction();break;
 
 
-			/*
-			complement du TP
-			Si l'utilisateur est non authentifié, $action=formauth
-			formauth affiche un formulaire d'authentification et pointe vers le controlleur avec action= verif
-			dans l'action verif, on vérifie la présence de l'utilisateur, si oui, on démarre la session puis redirection vers l'action allmat
-			sinon 
-				si aucune action donc allmat
-				si non exécuter l'action demandée par l'utilisateur
-			*/
 		}
 	}
 }
