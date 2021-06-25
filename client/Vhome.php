@@ -109,7 +109,7 @@
 			  		else echo '<div class="carousel-item">';
 ?>
 				
-		      <img class="d-block style="width: 100px; height: 200px;" src="<?php echo '../admin/photos/'.$cat[2].'.jpeg'; ?>"alt="First slide">
+		      <a href=ctrl.php?action=ProdCat&idcat=<?php echo $cat[3]?>><img class="d-block style="width: 100px; height: 200px;" src="<?php echo '../admin/photos/'.$cat[2].'.jpeg'; ?>"alt="First slide"></a>
 		      	  <div class="carousel-caption d-none d-md-block ccc">
     				<h1><?php echo "$cat[0]";?></h1>
     				<p><?php echo "$cat[1]";?></p>
@@ -178,7 +178,7 @@
 		
 			<!-- /.productbox -->
 <?php
-foreach($prods as $prod)
+foreach($prods as $pro)
 {
 ?>
 			<div class="col-md-4">
@@ -216,9 +216,50 @@ foreach($prods as $prod)
 								</td>
 								</form>
 						</span>
+			<div class="productbox">
+				<div class="fadeshop">
+					<div class="captionshop text-center" style="display: none;">
+						<h3><?php echo "$pro[1]"?></h3>
+						<p>
+							 <?php echo "$pro[2]";?>
+						</p>
+						<p>
+							<!--purchase-->
+							<?php echo "<a href=ctrl.php?action=purchase&num=$pro[0] class='learn-more detailslearn'><i class='fa fa-shopping-cart'></i> purchasee</a>";?>
+
+
+							<!--detail -->
+							<?php echo "<a href=ctrl.php?action=detail&num=$pro[0] class='learn-more detailslearn'><i class='fa fa-link'></i> Details</a>";?>
+							
+						</p>
+						<!--add to cart-->
+						<p>
+							<?php echo "<a href=ctrl.php?action=addtocart&num=$pro[0] class='learn-more detailslearn'><i class='fa fa-link'></i> add to cart</a>";?>
+						</p>
 					</div>
+					<span class="maxproduct"><img src="<?php echo '../admin/photos/'.$pro[5].'.jpeg'; ?>"></span>
+				</div>
+				<div class="product-details">
+					<a href="#">
+					<h1><?php echo "$pro[1]"?></h1>
+					</a>
+					<span class="price">
+					<span class="edd_price"><?php echo "$pro[3]"."$"?></span><br> <br>
+
+					
+					
+					<?php /*echo "<a href=ctrl.php?action=addtocart&num=$pro[0] class='learn-more detailslearn'><i class='fa fa-shopping-cart btnAddAction'></i> Add to cart</a>";*/?>
+					<form method="post" action="ctrl.php?action=addtocart&num=<?php echo $pro[0]?>">
+					<td>
+					
+					<input type="text" class="product-quantity" name="quantity" value="" size="2" />
+					<input type="submit" name="add to card" value="Add To Card">
+				</td>
+				</form>
+					</span>
 				</div>
 			</div>
+		</div>
 <?php
 }
 ?>

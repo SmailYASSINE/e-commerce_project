@@ -45,7 +45,15 @@ class ctrl
 		require 'checkout.php';
 	}
 
-	//add to cart 
+	//produits par categorie
+	public function catproductAction()
+	{
+		
+		$nume=array($_GET['num']);
+		$products=$this->model->CatProduct($nume);
+
+		require 'vproductcat.php';
+	}
 
 	
 
@@ -70,6 +78,7 @@ class ctrl
             
         }
 		header('location:ctrl.php?action=home');
+		session_destroy();
 		
 
 	} 
@@ -131,7 +140,7 @@ class ctrl
 		$prod=array();
 		$qnt=array();
 
-
+		if(isset($_SESSION["cart"])){
         foreach($_SESSION["cart"] as $key => $value){
             $n=$value['product_id'];
 
@@ -140,6 +149,7 @@ class ctrl
 			array_push($qnt, $value['quantity']);
 
             
+        }
         }
 		require 'checkout.php';
     }
@@ -179,10 +189,14 @@ public function deletecartAction()
 			case 'clientinfo' : $this->clientinfoAction();break;
 			case 'addtocart' : $this->addtocartAction();break;
 
+<<<<<<< HEAD
 			case 'allcards' : $this->checkoutAction();break;
+=======
+			case 'allcards' : $this->checkoutAction() ;break;
+>>>>>>> a47733757737a5986bae8fe7fea989d9bddf3196
 			case 'delete'   : $this->deletecartAction();break;
-			case 'one' : $this->oneMaterialAction();break;
-
+			
+			case 'ProdCat': $this->catproductAction();break;
 
 		}
 	}

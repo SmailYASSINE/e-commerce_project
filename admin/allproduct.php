@@ -80,7 +80,7 @@ else
                         echo "<td> $cat[0]</td> ";
 
                         echo "<td>";
-                        echo '<a href="#" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>';
+                        echo "<a href='http://localhost:84/e-commerce_project/client/ctrl.php?action=detail&num=$prod[0]' class='view' title='View' data-toggle='tooltip'><i class='material-icons'>&#xE417;</i></a>";
                         echo '<a href="#" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>';
                         echo '<a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>';
                         echo "</td>";

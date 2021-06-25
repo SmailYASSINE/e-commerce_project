@@ -30,7 +30,7 @@ class model
 	}
 	public function allcategories()
 	{
-		$query=$this->db->prepare('SELECT `nom_categorie`,`description`,`photo` FROM `categorie` ');
+		$query=$this->db->prepare('SELECT `nom_categorie`,`description`,`photo`,`id_categorie` FROM `categorie` ');
 		$query->execute();
 		return $query->fetchAll();
 	}
@@ -68,6 +68,13 @@ class model
 	{
 		$query2=$this->db->prepare("INSERT INTO produitacheter (`id_produit`,`quantite`,`id_commande`) VALUES (?,?,?)");
 		$query2->execute($cmd);
+	}
+
+	public function CatProduct($A)
+	{
+		$query=$this->db->prepare('SELECT `nom_produit`,produit.`description`,`prix`,`nom_categorie`,`image1` FROM produit,categorie WHERE produit.`id_categorie`=categorie.`id_categorie`AND `id_categorie`=?');
+		$query->execute($A);
+		return ($query->fetchAll());
 	}
 
 

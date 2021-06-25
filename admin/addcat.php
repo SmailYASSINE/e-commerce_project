@@ -22,5 +22,6 @@ if($_FILES["photo"]["error"]==0  )
 }
 echo $query;
 mysqli_query($connect,$query);
+header('location:Vaddcategory.php');
 
 ?>
