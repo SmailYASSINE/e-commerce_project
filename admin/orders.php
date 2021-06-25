@@ -28,10 +28,10 @@ require 'connexion.php';
 	$query="select * from materials where intitule like '%$critere%'";
 	}*/
     
-$query="select * from produit"; //liste 
+$query="select nom_client,prenom_client,num_tel,addresse,date_commande,total_price,id_commande from client,commande where commande.id_client=client.id_client order by date_commande"; //liste 
 $result=mysqli_query($connect,$query);
 $nb=mysqli_num_rows($result);
-if($nb==0) echo "<center>Aucun produit</center>";
+if($nb==0) echo "<center>Aucun order now</center>";
 else
 {
 ?>
@@ -44,7 +44,7 @@ else
         <div class="table-wrapper">
             <div class="table-title">
                 <div class="row">
-                    <div class="col-sm-8"><h2>Products <b>Details</b></h2></div>
+                    <div class="col-sm-8"><h2>ALL <b>Orders</b></h2></div>
                     <div class="col-sm-4">
                         <div class="search-box">
                             <i class="material-icons">&#xE8B6;</i>
@@ -57,31 +57,31 @@ else
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Product Name <i class="fa fa-sort"></i></th>
-                        <th>Description</th>
-                        <th>Insertion Date <i class="fa fa-sort"></i></th>
-                        <th>Price</th>
-                        <th>Category <i class="fa fa-sort"></i></th>
+                        <th>client Name <i class="fa fa-sort"></i></th>
+                        <th>address</th>
+                        <th>order Date <i class="fa fa-sort"></i></th>
+                        <th>total Price</th>
+                        <th>Phone number <i class="fa fa-sort"></i></th>
                         <th>Actions</th>
                     </tr>
                 </thead>
 
 
                 <?php
-                while($prod=mysqli_fetch_row($result))
+                $conter=0;
+                while($order=mysqli_fetch_row($result))
                 {
                 echo "<tbody>";
                     echo "<tr>";
-                        echo "<td>$prod[0]</td><td>$prod[1]</td><td>$prod[3]</td><td>$prod[7]</td><td>$prod[2]</td>";
-                        $querycat="select nom_categorie from categorie where id_categorie=$prod[9]";
-                        $resultcat=mysqli_query($connect,$querycat);
-                        $cat=mysqli_fetch_row($resultcat);
-                        echo "<td> $cat[0]</td> ";
+                    $conter+=1;
+                        echo "<td>$conter</td><td>$order[0] $order[1]</td><td>$order[3]</td><td>$order[4]</td><td>$order[5]</td>";
+                        
+                        echo "<td> $order[2]</td> ";
 
                         echo "<td>";
-                        echo "<a href='http://localhost:84/e-commerce_project/client/ctrl.php?action=detail&num=$prod[0]' class='view' title='View' data-toggle='tooltip'><i class='material-icons'>&#xE417;</i></a>";
-                        echo "<a href=editproduct.php?num=$prod[0] class='edit' title='Edit' data-toggle='tooltip'><i class='material-icons'>&#xE254;</i></a>";
-                        echo "<a href=delete_product.php?num=$prod[0] class='delete' title='Delete' data-toggle='tooltip'><i class='material-icons'>&#xE872;</i></a>";
+                        echo "<a href=detailorder.php?num=$order[6] class='view' title='View' data-toggle='tooltip'><i class='material-icons'>&#xE417;</i></a>";
+                       // echo "<a href=editproduct.php?num=$prod[0] class='edit' title='Edit' data-toggle='tooltip'><i class='material-icons'>&#xE254;</i></a>";
+                    //    echo "<a href=delete_product.php?num=$prod[0] class='delete' title='Delete' data-toggle='tooltip'><i class='material-icons'>&#xE872;</i></a>";
                         echo "</td>";
                     echo "</tr>";
                 }

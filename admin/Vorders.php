@@ -53,10 +53,10 @@
           </a>
           <a href="Vorders.php" class="list-group-item list-group-item-action py-2 ripple"><i
               class="fas fa-money-bill fa-fw me-3"></i><span>Orders</span></a>
-    
+          
           <a href="Vaddadmin.php" class="list-group-item list-group-item-action py-2 ripple"><i
               class="fas fa-users fa-fw me-3"></i><span>Partners</span></a>
-   
+         
         </div>
       </div>
     </nav>
@@ -76,16 +76,12 @@
         <a class="navbar-brand" href="#">
           <img src="img/logo1.png" height="70" width="100" alt="" loading="lazy" />
         </a>
-        <!-- Search form -->
         
 
         <!-- Right links -->
         <ul class="navbar-nav ms-auto d-flex flex-row">
-          <!-- Notification dropdown -->
           
 
-          
-          
           <!-- Avatar -->
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle hidden-arrow d-flex align-items-center" href="#"
@@ -131,7 +127,7 @@
 --> 
       <section>
         <?php
-        include 'allproducts.php';
+        include 'orders.php';
         ?>
       </section>
       <!--Section: add product-->
