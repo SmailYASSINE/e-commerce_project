@@ -1,5 +1,7 @@
 <?php 
         require 'verfsession.php';
+        $_SESSION['previous'] = basename($_SERVER['PHP_SELF']);
+
   ?>
 
 <!DOCTYPE html>
@@ -42,12 +44,12 @@
             
           </a>
           -->
-          
+         
 
-          <a href="Vallproduct.php" class="list-group-item list-group-item-action py-2 ripple"><i
-              class="fas fa-lock fa-fw me-3"></i><span>all product</span></a>
+                   <a href="Vallproduct.php" class="list-group-item list-group-item-action py-2 ripple"><i
+              class="fas fa-clipboard-list fa-fw me-3"></i><span>all product</span></a>
           <a href="Vaddproduct.php" class="list-group-item list-group-item-action py-2 ripple"><i
-              class="fas fa-chart-line fa-fw me-3"></i><span>add product</span></a>
+              class="fas fa-plus-circle fa-fw me-3"></i><span>add product</span></a>
           <a href="Vaddcategory.php" class="list-group-item list-group-item-action py-2 ripple">
             <i class="fas fa-chart-pie fa-fw me-3"></i><span>add category</span>
           </a>
@@ -95,7 +97,7 @@
             </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
               <li><a class="dropdown-item" href="#">My profile</a></li>
-              <li><a class="dropdown-item" href="#">Settings</a></li>
+            
               <li><a class="dropdown-item" href="deconexion.php">Logout</a></li>
             </ul>
           </li>

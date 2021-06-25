@@ -105,7 +105,7 @@ else
 							<?php echo "<a href=ctrl.php?action=addtocart&num=$pro[0] class='learn-more detailslearn'><i class='fa fa-link'></i> add to cart</a>";?>
 						</p>
 					</div>
-					<span class="maxproduct"><img src="<?php echo '../admin/photos/'.$pro[4].'.jpeg'; ?>"></span>
+					<span class="maxproduct"><img src="<?php echo '../admin/photos/'.$pro[4].'.jpeg'; ?>"width="300px" height="300px></span>
 				</div>
 				<div class="product-details">
 					<a href="#">
@@ -116,7 +116,6 @@ else
 
 					
 					
-					<?php /*echo "<a href=ctrl.php?action=addtocart&num=$pro[0] class='learn-more detailslearn'><i class='fa fa-shopping-cart btnAddAction'></i> Add to cart</a>";*/?>
 					<form method="post" action="ctrl.php?action=addtocart&num=<?php echo $pro[0]?>">
 					<td>
 					
@@ -138,7 +137,6 @@ else
 ?>
 
 
--->
 <!-- Load JS here for greater good =============================-->
 <script src="js/jquery-.js"></script>
 <script src="js/bootstrap.min.js"></script>

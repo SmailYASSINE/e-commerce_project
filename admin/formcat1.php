@@ -26,7 +26,9 @@
 	https://templatemo.com/tm-524-product-admin
 	-->
   </head>
-
+<?php require 'connexion.php';
+       require 'verfsession.php';
+  ?>
   <body>
   
 

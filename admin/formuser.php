@@ -29,8 +29,8 @@
   </head>
 
   <body>
-  <?php//* require 'connexion.php';
-     //   require 'verfsession.php';
+  <?php require 'connexion.php';
+        require 'verfsession.php';
   ?>
 
  

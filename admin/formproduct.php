@@ -30,7 +30,7 @@
 
   <body>
   <?php require 'connexion.php';
-     //   require 'verfsession.php';
+       require 'verfsession.php';
   ?>
  
     <div class="container tm-mt-big tm-mb-big">

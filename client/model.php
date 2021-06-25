@@ -72,7 +72,7 @@ class model
 
 	public function CatProduct($A)
 	{
-		$query=$this->db->prepare('SELECT `nom_produit`,produit.`description`,`prix`,`nom_categorie`,`image1` FROM produit,categorie WHERE produit.`id_categorie`=categorie.`id_categorie`AND `id_categorie`=?');
+		$query=$this->db->prepare('SELECT `nom_produit`,produit.`description`,`prix`,`nom_categorie`,`image1` FROM produit,categorie WHERE produit.`id_categorie`=categorie.`id_categorie`AND produit.`id_categorie`=?');
 		$query->execute($A);
 		return ($query->fetchAll());
 	}
