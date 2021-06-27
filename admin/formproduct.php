@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Add Product </title>
+    <title>Add Product - Dashboard HTML Template</title>
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Roboto:400,700"
@@ -23,14 +23,14 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <!--
-  Product Admin CSS Template
-  https://templatemo.com/tm-524-product-admin
-  -->
+	Product Admin CSS Template
+	https://templatemo.com/tm-524-product-admin
+	-->
   </head>
 
   <body>
-  <?php 
- if(basename($_SERVER['PHP_SELF'])=='formproduct.php') {require 'verfsession.php';}
+  <?php require 'connexion.php';
+     //   require 'verfsession.php';
   ?>
  
     <div class="container tm-mt-big tm-mb-big">
@@ -48,7 +48,7 @@
                   <div class="form-group mb-3">
                     <label
                       for="name"
-                      >product Name
+                      >Product Name
                     </label>
                     <input
                       id="name"
@@ -156,7 +156,7 @@
               </div>
 
               <div class="col-12">
-                <button type="submit" class="btn btn-primary btn-block text-uppercase">add Product Now</button>
+                <button type="submit" class="btn btn-primary btn-block text-uppercase">Update Product Now</button>
               </div>
             </form>
             </div>

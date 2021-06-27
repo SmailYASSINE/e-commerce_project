@@ -1,5 +1,7 @@
 <?php 
-        //require 'verfsession.php';
+        require 'verfsession.php';
+        $_SESSION['previous'] = basename($_SERVER['PHP_SELF']);
+
   ?>
 
 <!DOCTYPE html>
@@ -9,23 +11,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <meta http-equiv="x-ua-compatible" content="ie=edge" />
-  <title>Add Admin</title>
+  <title>All Products</title>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
   <!-- Google Fonts Roboto -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
   <!-- MDB -->
   <link rel="stylesheet" href="css/mdb.min.css" />
-   <link rel="stylesheet" href="logincss.css?nocache={timestamp}">
   <!-- Custom styles -->
-  <link rel="stylesheet" href="css/admin.css" />
-  <link rel="stylesheet" href="logincss.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw=="
     crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
@@ -44,9 +45,9 @@
             
           </a>
           -->
-          
+         
 
-          <a href="Vallproduct.php" class="list-group-item list-group-item-action py-2 ripple"><i
+                <a href="Vallproduct.php" class="list-group-item list-group-item-action py-2 ripple"><i
               class="fas fa-clipboard-list fa-fw me-3"></i><span>all product</span></a>
           <a href="Vaddproduct.php" class="list-group-item list-group-item-action py-2 ripple"><i
               class="fas fa-plus-circle fa-fw me-3"></i><span>add product</span></a>
@@ -58,7 +59,7 @@
     
           <a href="Vaddadmin.php" class="list-group-item list-group-item-action py-2 ripple"><i
               class="fas fa-users fa-fw me-3"></i><span>Partners</span></a>
-          
+   
         </div>
       </div>
     </nav>
@@ -78,12 +79,16 @@
         <a class="navbar-brand" href="#">
           <img src="img/logo1.png" height="70" width="100" alt="" loading="lazy" />
         </a>
+        <!-- Search form -->
         
 
         <!-- Right links -->
         <ul class="navbar-nav ms-auto d-flex flex-row">
+          <!-- Notification dropdown -->
           
 
+          
+          
           <!-- Avatar -->
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle hidden-arrow d-flex align-items-center" href="#"
@@ -92,7 +97,8 @@
                 alt="" loading="lazy" />
             </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-              
+              <li><a class="dropdown-item" href="#">My profile</a></li>
+            
               <li><a class="dropdown-item" href="deconexion.php">Logout</a></li>
             </ul>
           </li>
@@ -125,12 +131,10 @@
             
             
       </section>
---> 
+--> </div>
       <section>
         <?php
-
-        include 'formuser.php';
-
+        include 'dashboard.php';
         ?>
       </section>
       <!--Section: add product-->
@@ -140,7 +144,7 @@
    <!--   <section>
         
       <!--Section: Statistics with subtitles-->
-    </div>
+    
   </main>
   <!--Main layout-->
   <!-- MDB -->
