@@ -26,6 +26,7 @@
 if (isset($_SESSION['previous'])) {
 	//print_r($_SESSION["previous"]);
    if (basename($_SERVER['PHP_SELF']) != $_SESSION['previous']) {
+   	
         session_destroy();
         // on a comparer le variable sesion previous intialiser dans Vallproduct avec le current $server
    }
