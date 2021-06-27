@@ -109,7 +109,7 @@
 			  		else echo '<div class="carousel-item">';
 ?>
 				
-		      <a href=ctrl.php?action=ProdCat&idcat=<?php echo $cat[3]?>><img  class="d-block style="width: 100px; height: 200px;" src="<?php echo '../admin/photos/'.$cat[2].'.jpeg'; ?>"alt="First slide"></a>
+		      <a href=ctrl.php?action=ProdCat&idcat=<?php echo $cat[3]?>><img  class="d-block style="width: 100px; height: 200px;" src="<?php echo '../admin/photos/'.$cat[2].'.jpeg'; ?>" alt="First slide"></a>
 		      	  <div class="carousel-caption d-none d-md-block ccc">
     				<h1><?php echo "$cat[0]";?></h1>
     				<p><?php echo "$cat[1]";?></p>
