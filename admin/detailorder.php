@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Bootstrap Simple Data Table</title>
+<title>Product Details</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -11,7 +11,7 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="logincss.css">
+<link rel="stylesheet" href="logincss.css?nocache={timestamp}">
 
 <script>
 $(document).ready(function(){
@@ -23,7 +23,7 @@ $(document).ready(function(){
 <?php 
 require 'connexion.php';
 $numcom=$_GET['num'];
-$query="select produit.id_produit,nom_produit,prix,image1,quantite from produit,produitacheter where produit.id_produit=produitacheter.id_produit and id_commande='$numcom' "; //liste 
+$query="select produit.id_produit,nom_produit,prix,image2,quantite from produit,produitacheter where produit.id_produit=produitacheter.id_produit and id_commande='$numcom' "; //liste 
 $result=mysqli_query($connect,$query);
 
 $query2="select nom_client, prenom_client,num_tel, addresse from client,commande where client.id_client=commande.id_client and id_commande='$numcom'";
@@ -54,16 +54,16 @@ else
                 $client=mysqli_fetch_row($result2);
                ?>
                 <h5 style="color:black ;">Client Information :</h4><br>
-                <h6>First Name : <?php echo $client[0] ?></h5>
-                <h6>Last Name : <?php echo $client[1] ?></h5>
-                <h6>Phone Number : <?php echo $client[2] ?></h5>
-                <h6>Address : <?php echo $client[3] ?></h5>
+                <b><h6>First Name :&nbsp;&nbsp;</b> <?php echo $client[0] ?></h5>
+                <b><h6>Last Name :</b>&nbsp;&nbsp; <?php echo $client[1] ?></h5>
+                <b><h6>Phone Number :</b>&nbsp;&nbsp; <?php echo $client[2] ?></h5>
+                <b><h6>Address :</b>&nbsp;&nbsp; <?php echo $client[3] ?></h5>
                 <br>
                 <br>
                 <br>
                 <thead>
                     <tr>
-                        <th>#</th>
+                        <th>Item image</th>
                         <th>product Name <i class="fa fa-sort"></i></th>
                         <th>price</th>
                         <th>quantite<i class="fa fa-sort"></i></th>
@@ -80,9 +80,11 @@ else
                 echo "<tbody>";
                     echo "<tr>";
                    
-                        echo "<td><img width=\"60\" height=\"60\" src=\"'.'photos/'.$order[3].'.jpeg\"></td>";
-                        echo "<td>$order[1] </td><td>$order[2]</td><td>$order[4] $</td>";
-                        echo "<td>";  echo $order[2] * $order[4];  echo "</td>";
+                       // echo "<td><img width=\"60\" height=\"60\" src=\"'.'photos/'.$order[3].'.jpeg\"></td>";
+                       ?>
+                       <td><img width="60" height="60" src="<?php echo 'photos/'.$order[3].'.jpeg'; ?>"   alt=""></td>
+                       <?php echo "<td>$order[1] </td><td>$order[2]</td><td>$order[4]</td>";
+                        echo "<td>";  echo $order[2] * $order[4];  echo "$</td>";
                 
 
                         

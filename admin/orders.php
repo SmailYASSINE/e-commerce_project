@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Bootstrap Simple Data Table</title>
+<title>Orders</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -11,7 +11,7 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="logincss.css">
+<link rel="stylesheet" href="logincss.css?nocache={timestamp}">
 
 <script>
 $(document).ready(function(){
@@ -59,7 +59,7 @@ $query="select nom_client,prenom_client,num_tel,addresse,date_commande,id_comman
 $result=mysqli_query($connect,$query);
 $nb=mysqli_num_rows($result);
 
-if($nb==0) {echo "<center>Aucun order now</center>";}
+if($nb==0) {echo "<center>Unfortunately ! No Order to Display</center>";}
 else
 {
 

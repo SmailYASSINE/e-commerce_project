@@ -9,7 +9,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <meta http-equiv="x-ua-compatible" content="ie=edge" />
-  <title>Material Design for Bootstrap</title>
+  <title>All Orders</title>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
   <!-- Google Fonts Roboto -->
@@ -90,7 +90,7 @@
                 alt="" loading="lazy" />
             </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-              <li><a class="dropdown-item" href="#">My profile</a></li>
+              
               
               <li><a class="dropdown-item" href="deconexion.php">Logout</a></li>
             </ul>
@@ -106,37 +106,13 @@
   <!--Main layout-->
   <main style="margin-top: 58px">
     <div class="container pt-4">
-      <!-- Section: Main chart -->
-      
-      <!-- Section: Main chart -->
 
-      <!--Section: Sales Performance KPIs-->
- 
-      <!--Section: all product-->
-<!-- 
-      <section>
-        
-            
-            
-            $myfile = fopen("allproducts.php", "r+") or die("Unable to open file!");
-            echo fread($myfile,filesize("allproducts.php"));
-            fclose($myfile);
-            
-            
-      </section>
---> 
       <section>
         <?php
         include 'orders.php';
         ?>
       </section>
-      <!--Section: add product-->
-      
-      <!--Section: Statistics with subtitles-->
-
-   <!--   <section>
-        
-      <!--Section: Statistics with subtitles-->
+     
     </div>
   </main>
   <!--Main layout-->

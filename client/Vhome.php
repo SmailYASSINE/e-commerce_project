@@ -109,7 +109,7 @@
 			  		else echo '<div class="carousel-item">';
 ?>
 				
-		      <a href=ctrl.php?action=ProdCat&idcat=<?php echo $cat[3]?>><img class="d-block style="width: 100px; height: 200px;" src="<?php echo '../admin/photos/'.$cat[2].'.jpeg'; ?>"alt="First slide"  width="500px" height="500px ></a>
+		      <a href=ctrl.php?action=ProdCat&idcat=<?php echo $cat[3]?>><img  class="d-block style="width: 100px; height: 200px;" src="<?php echo '../admin/photos/'.$cat[2].'.jpeg'; ?>"alt="First slide"></a>
 		      	  <div class="carousel-caption d-none d-md-block ccc">
     				<h1><?php echo "$cat[0]";?></h1>
     				<p><?php echo "$cat[1]";?></p>
@@ -120,9 +120,8 @@
 		$v=1;
 }
 ?>
-
 	  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-	    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+	    <span class="carousel-control-prev-icon " aria-hidden="true"></span>
 	    <span class="sr-only">Previous</span>
 	  </a>
 	  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
@@ -136,20 +135,6 @@
 
 
 
-
-
-
-
-			<!-- /.col-md-4 col 
-			<div class="col-md-4 editContent">
-				<div class="col">
-					<span class="numberstep"><i class="fa fa-download"></i></span>
-					<h3 class="numbertext">Get Instand Download</h3>
-					<p>
-						 Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Nullam quis risus eget urna mollis ornare vel eu leo. Cras justo odio, dapibus ac facilisis in, egestas eget quam.
-					</p>
-				</div>
-				-->
 			
 		
 	</div>

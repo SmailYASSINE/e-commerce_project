@@ -22,12 +22,12 @@
 			<i class="fa fa-bars"></i>
 			<span class="sr-only">Toggle navigation</span>
 			</button>
-			<a href="index.html" class="navbar-brand brand"> SCORILO </a>
+			<a href="" class="navbar-brand brand"> Ecommerce Store</a>
 		</div>
 		<div id="navbar-collapse-02" class="collapse navbar-collapse">
-			<ul class="nav navbar-nav navbar-right">
+		<ul class="nav navbar-nav navbar-right d-inline">
 				<li class="propClone"><a href="ctrl.php">Home</a></li>
-				<li class="propClone"><a href="Vproduct.php">Shop</a></li>
+				<li class="propClone"><a href="#categories">Categories</a></li>
 				<li class="propClone"><?php echo '<a href=ctrl.php?action=allpro >Our Products</a>';?></li>
 				<li class="propClone"><?php echo '<a href=ctrl.php?action=allcards >Checkout</a>';?></li>
 				<li class="propClone"><a href="contact.html">Contact</a></li>
@@ -51,90 +51,78 @@
 
 <!-- CONTENT =============================-->
 <section class="item content">
-<div class="container toparea">
-	<div class="underlined-title">
-		<div class="editContent">
-			<h1 class="text-center latestitems">OUR PRODUCTS</h1>
+	<div class="container">
+		<div class="underlined-title">
+			<div class="editContent">
+				<h1 class="text-center latestitems">LATEST ITEMS</h1>
+			</div>
+			<div class="wow-hr type_short">
+				<span class="wow-hr-h">
+				<i class="fa fa-star"></i>
+				<i class="fa fa-star"></i>
+				<i class="fa fa-star"></i>
+				</span>
+			</div>
 		</div>
-		<div class="wow-hr type_short">
-			<span class="wow-hr-h">
-			<i class="fa fa-star"></i>
-			<i class="fa fa-star"></i>
-			<i class="fa fa-star"></i>
-			</span>
-		</div>
-	</div>
-	<div class="row">
 
-
-
-
-
-
-
+		<div class="row">
+			
+			<!-- /.productbox -->
+		
+			<!-- /.productbox -->
 <?php
-$nb=count($products);
-if($nb==0)
+foreach($products as $prod)
 {
-	echo "Any product is available in our store now";
-}
-else
-{
-	foreach($products as $pro)
-	{
 ?>
-		<div class="col-md-4">
-			<div class="productbox">
-				<div class="fadeshop">
-					<div class="captionshop text-center" style="display: none;">
-						<h3><?php echo "$pro[1]"?></h3>
-						<p>
-							 <?php echo "$pro[2]";?>
-						</p>
-						<p>
-							<!--purchase-->
-							<?php echo "<a href=ctrl.php?action=purchase&num=$pro[0] class='learn-more detailslearn'><i class='fa fa-shopping-cart'></i> purchasee</a>";?>
-
-
-							<!--detail -->
-							<?php echo "<a href=ctrl.php?action=detail&num=$pro[0] class='learn-more detailslearn'><i class='fa fa-link'></i> Details</a>";?>
-							
-						</p>
-						<!--add to cart-->
-						<p>
-							<?php echo "<a href=ctrl.php?action=addtocart&num=$pro[0] class='learn-more detailslearn'><i class='fa fa-link'></i> add to cart</a>";?>
-						</p>
+			<div class="col-md-4">
+				<div class="productbox">
+					<div class="fadeshop">
+						<div class="captionshop text-center" style="display: none;">
+							<h3><?php echo "$prod[1]"?></h3>
+							<p>
+								 <?php echo "$prod[2]"?>
+							</p>
+							<p>
+								<!--shop product
+								 echo "<a href=ctrl.php?action=purchase class='learn-more detailslearn'><i class='fa fa-shopping-cart'></i> purchasee</a>";?>-->
+								<!-- on a meet le lien pour acceder a oneproduct -->
+								<?php echo "<a href=ctrl.php?action=detail&num=$prod[5] class='learn-more detailslearn'><i class='fa fa-link'></i> Details</a>";?>
+								
+							</p>
+							<!--add to cart-->
+						</div>
+						<span class="maxproduct"><img src="<?php echo '../admin/photos/'.$prod[4].'.jpeg'; ?>" alt=""></span>
 					</div>
-					<span class="maxproduct"><img src="<?php echo '../admin/photos/'.$pro[4].'.jpeg'; ?>"width="300px" height="300px></span>
-				</div>
-				<div class="product-details">
-					<a href="#">
-					<h1><?php echo "$pro[1]"?></h1>
-					</a>
-					<span class="price">
-					<span class="edd_price"><?php echo "$pro[3]"."$"?></span><br> <br>
+					<div class="product-details h3">
+						<a href="#">
+						<h5><?php echo "$prod[0]"?></h5>
+						</a>
+						<span class="price">
+						<span class="edd_price"><?php echo "$prod[2]"?>$</span><br> <br>
 
 					
+								<form method="post" action="ctrl.php?action=addtocart&num=<?php echo $prod[0]?>">
+								<td>
+
+								<input type="text" class="product-quantity " name="quantity" value="1" size="3" />
+								<input type="submit" name="add to card" value="Add To Card">
+								</td>
+								</form>
+						</span>
+						
 					
-					<form method="post" action="ctrl.php?action=addtocart&num=<?php echo $pro[0]?>">
-					<td>
-					
-					<input type="text" class="product-quantity" name="quantity" value="" size="2" />
-					<input type="submit" name="add to card" value="Add To Card">
-				</td>
-				</form>
-					</span>
 				</div>
 			</div>
 		</div>
 <?php
-
 }
-}
-
-
-
 ?>
+		</div>
+
+	</div>
+
+</div>
+</section>
 
 
 <!-- Load JS here for greater good =============================-->

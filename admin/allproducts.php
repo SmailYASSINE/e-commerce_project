@@ -12,7 +12,9 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="logincss.css?nocache={timestamp}">
-
+<?php 
+ if(basename($_SERVER['PHP_SELF'])=='allproducts.php') {require 'verfsession.php';}
+  ?>
 <script>
 $(document).ready(function(){
 	$('[data-toggle="tooltip"]').tooltip();
@@ -20,21 +22,7 @@ $(document).ready(function(){
 </script>
 
 
-<?php 
-require 'connexion.php';
-/*if(isset($_POST['critere'])) //recherche
-	{
-	$critere=$_POST['critere'];
-	$query="select * from materials where intitule like '%$critere%'";
-	}*/
-    
-$query="select * from produit"; //liste 
-$result=mysqli_query($connect,$query);
-$nb=mysqli_num_rows($result);
-if($nb==0) echo "<center>Aucun produit</center>";
-else
-{
-?>
+
 
 
 </head>
@@ -58,14 +46,24 @@ else
                     <tr>
                         <th>#</th>
                         <th>Product Name <i class="fa fa-sort"></i></th>
-                        <th>Description</th>
+                        <th class="text-center">Description</th>
                         <th>Insertion Date <i class="fa fa-sort"></i></th>
                         <th>Price</th>
                         <th>Category <i class="fa fa-sort"></i></th>
                         <th>Actions</th>
                     </tr>
                 </thead>
+                <?php 
+require 'connexion.php';
 
+    
+$query="select * from produit"; 
+$result=mysqli_query($connect,$query);
+$nb=mysqli_num_rows($result);
+if($nb==0) echo "<center>Hi Admin Please Insert a Product </center>";
+else
+{
+?>
 
                 <?php
                 while($prod=mysqli_fetch_row($result))
@@ -79,7 +77,7 @@ else
                         echo "<td> $cat[0]</td> ";
 
                         echo "<td>";
-                        echo "<a href='http://localhost:84/e-commerce_project/client/ctrl.php?action=detail&num=$prod[0]' class='view' title='View' data-toggle='tooltip'><i class='material-icons'>&#xE417;</i></a>";
+                        echo "<a href='http://localhost/e-commerce_project/client/ctrl.php?action=detail&num=$prod[0]' class='view' title='View' data-toggle='tooltip'><i class='material-icons'>&#xE417;</i></a>";
                         echo "<a href=editproduct.php?num=$prod[0] class='edit' title='Edit' data-toggle='tooltip'><i class='material-icons'>&#xE254;</i></a>";
                         echo "<a href=delete_product.php?num=$prod[0] class='delete' title='Delete' data-toggle='tooltip'><i class='material-icons'>&#xE872;</i></a>";
                         echo "</td>";

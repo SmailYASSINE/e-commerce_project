@@ -77,6 +77,7 @@
 				<div class="clearfix">
 				</div>
 				<br/>
+				<h1>Product Description</h1>
 				<div class="product-details text-left">
 					<p>
 							 <?php echo "$product[1]";?>
@@ -98,11 +99,10 @@
  		-->	
 			<div class="properties-box">	
 				<ul class="unstyle">
-					<li><b class="propertyname">name: </b><?php echo "$product[1]";?></li>
+					<li><b class="propertyname">name: </b><?php echo "$product[0]";?></li>
 					<li><b class="propertyname">price: </b><?php echo "$product[2]";?>$</li>
 					<li><b class="propertyname">category: </b> <?php echo "$product[3]";?></li>
-					<li><b class="propertyname">Number:</b> Up to 20 specifications in this box</li>
-					<li><b class="propertyname">Live Demo:</b><a target="_blank" href="http://www.wowthemes.net/">http://www.wowthemes.net/</a></li>
+					
 				</ul>
 			</div>
 		</div>
